@@ -15,6 +15,7 @@ The app will begin in early iterations with the bare bones of the game: making f
 
 We at Overfeed will consider the game a success depending on user experience and the quality of features. If players can play for 10 minutes and come back to the game to serve more food and unlock more achievements after their first session, Overfeed will be successful. If our features are numerous, entertaining, and have minimal bugs, then we will feel proud as programmers and successful as individuals.
 
+The Overflow game development plan will follow the Git Flow branching strategy of maintaining a Development branch where features are branched off of then merged back into, a Release branch for features that are ready in time for launch and just need bug fixes, and a Main branch for fully finished versions and hotfixes.
 
 #### Inspiration
 [The **Original** Cookie Clicker Game](https://orteil.dashnet.org/cookieclicker/)
