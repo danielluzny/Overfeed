@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
             timerTextView.setText(String.format("%d:%02d", minutes, seconds));
 
-            timerHandler.postDelayed(this, 500);
+            timerHandler.post(this);
         }
     }; // End timer set up
 
