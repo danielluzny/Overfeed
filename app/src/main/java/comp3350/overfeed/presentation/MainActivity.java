@@ -9,35 +9,34 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import comp3350.overfeed.R;
+import comp3350.overfeed.logic.TimeCalculation;
 
 public class MainActivity extends AppCompatActivity {
 
     // Timer set up
+    TimeCalculation tc = new TimeCalculation();
     TextView timerTextView;
-    long startTime = System.currentTimeMillis();
-
     Handler timerHandler = new Handler();
     Runnable timerRunnable = new Runnable()
     {
         @Override
         public void run()
         {
-            int seconds = (int)((System.currentTimeMillis() - startTime)/1000); // divide by 1000 here because 1000ms == 1s
-            int minutes = seconds / 60;
-
-            timerTextView.setText(String.format("%d:%02d", minutes, seconds));
-
+            int[] time = tc.getTime();
+            timerTextView.setText(String.format("%d:%02d", time[1], time[0]));
             timerHandler.post(this);
         }
-    }; // End timer set up
+    };
+    // End timer set up
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Start the timer on app start up
         timerTextView = (TextView)findViewById(R.id.timerTextView);
-        timerHandler.postDelayed(timerRunnable, 0);
+        timerHandler.post(timerRunnable);
 
     }
 }
