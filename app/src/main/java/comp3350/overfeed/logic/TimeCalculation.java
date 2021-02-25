@@ -17,7 +17,7 @@ public class TimeCalculation
         int seconds = (int)((System.currentTimeMillis() - startTime)/1000); // divide by 1000 here because 1000ms == 1s
         int minutes = seconds / 60; // similarly for seconds to minutes
 
-        result[0] = seconds;
+        result[0] = seconds%60;
         result[1] = minutes;
 
         return result;
