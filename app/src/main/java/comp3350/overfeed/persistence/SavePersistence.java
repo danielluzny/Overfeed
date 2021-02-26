@@ -3,10 +3,9 @@ package comp3350.overfeed.persistence;
 import comp3350.overfeed.logic.MealLogic;
 import comp3350.overfeed.logic.SaveLogic;
 import comp3350.overfeed.logic.TimeLogic;
+import java.io.File;
 import java.io.*;
 import java.util.Scanner;
-
-import static java.lang.Integer.parseInt;
 
 public class SavePersistence {
 
@@ -14,7 +13,7 @@ public class SavePersistence {
     private SaveLogic saveLogic;
 
     //constructor
-    public SavePersistence(SaveLogic saveLogic) {
+    public SavePersistence() {
         this.saveLogic = saveLogic;
         try {
             saveFile = new File("sessionSaveFile.txt");
@@ -40,9 +39,11 @@ public class SavePersistence {
     //remove everything from file, add new data to file, send data to database
     public void save(MealLogic meals) {
         try {
-            DataOutputStream dos = new DataOutputStream(new FileOutputStream(saveFile));
-            dos.write(meals.getMeals());
+            FileOutputStream fos = new FileOutputStream("sessionSaveFile.txt", false);
+            DataOutputStream dos = new DataOutputStream(fos);
+            dos.writeInt(meals.getMeals());
             dos.close();
+            fos.close();
         } catch(Exception e) {
             System.out.println("Failed to save the file.");
         }

@@ -36,9 +36,11 @@ public class SaveLogicTest {
             System.out.println("File does not exist, save failed.");
         }
 
+        System.out.println("Test 2");
+        saveLogic.loadGame();
         saveLogic.setGame(10);
         saveLogic.saveGame();
-        System.out.println("Should read in 10 from meals.");
+        System.out.println("Test 3");
         saveLogic.loadGame();
     }
 
