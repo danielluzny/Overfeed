@@ -26,10 +26,10 @@ public class SavePersistence {
     }
 
     //remove everything from file, add new data to file, send data to database
-    public void save(MealPersistence meals, TimePersistence time) {
+    public void save() {
         try {
             Writer myWriter = new FileWriter("sessionSaveFile.txt", false);
-            myWriter.write(meals.getMeals() + " " + time.getCurrTime());
+            myWriter.write(MealPersistence.getMeals());
         } catch(Exception e) {
             System.out.println("Failed to save the file.");
         }
