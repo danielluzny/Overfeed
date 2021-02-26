@@ -26,12 +26,6 @@ public class SaveLogic {
         }, 10000, 30000); //divide by 1,000 to get the number in seconds
     }
 
-    public void saveGame() {saveFile.save(meals);}
-
-    public void loadGame() {saveFile.load();}
-
-    public void setGame(int numMeals) {
-        meals.setMeals(numMeals);
-    }
+    public void saveGame() {saveFile.save(meals, time);}
 
 }
