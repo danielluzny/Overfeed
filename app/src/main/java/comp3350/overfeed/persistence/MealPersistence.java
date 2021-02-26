@@ -31,4 +31,5 @@ public class MealPersistence
         return this.numClicks;
     }
 
+    public void setMeals(int meals) { this.numMeals = meals;}
 }

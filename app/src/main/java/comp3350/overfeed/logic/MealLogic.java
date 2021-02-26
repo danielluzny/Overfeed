@@ -29,4 +29,6 @@ public class MealLogic
     public void incrementClicks() { mealPersistence.incrementClicks();}
 
     public int getClicks() { return mealPersistence.getClicks(); }
+
+    public void setMeals(int meals) {mealPersistence.setMeals(meals);}
 }
