@@ -25,4 +25,8 @@ public class MealLogic
     {
         return this.getMeals()+"";
     }
+
+    public void incrementClicks() { mealPersistence.incrementClicks();}
+
+    public int getClicks() { return mealPersistence.getClicks(); }
 }
