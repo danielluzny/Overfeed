@@ -14,7 +14,7 @@ public class StatisticsActivity extends AppCompatActivity {
     TextView textTotalClicks;
     TextView textCurrentTime;
     TextView textTotalMeals;
-    TextView textTotalTime;
+//    TextView textTotalTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -32,13 +32,9 @@ public class StatisticsActivity extends AppCompatActivity {
         textTotalClicks = (TextView)findViewById(R.id.textTotalClicks);
         textCurrentTime = (TextView)findViewById(R.id.textCurrentTime);
         textTotalMeals = (TextView)findViewById(R.id.textTotalMeals);
-        textTotalTime = (TextView)findViewById(R.id.textTotalTime);
-    }
-
-    public void buttonBackHomeOnClick(View view)
-    {
-        Intent backHomeIntent = new Intent(StatisticsActivity.this, MainActivity.class);
-        StatisticsActivity.this.startActivity(backHomeIntent);
+        textTotalClicks.setText(clicks_string);
+        textTotalMeals.setText(clicks_string);
+        textCurrentTime.setText(minutes_string+":"+seconds_string);
     }
 
 }

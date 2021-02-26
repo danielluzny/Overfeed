@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         int[] currTime = timeLogic.formatTime();
         extras.putString("TIME_MINUTES", Integer.toString(currTime[1]));
-        extras.putString("TIME_SECONDS", Integer.toString(currTime[0]));
+        extras.putString("TIME_SECONDS", String.format("%02d", currTime[0]));
         extras.putString("NUMBER_CLICKS", mealLogic.mealsToString());
         statisticsIntent.putExtras(extras);
 
