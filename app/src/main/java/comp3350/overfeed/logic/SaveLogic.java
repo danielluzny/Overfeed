@@ -16,7 +16,7 @@ public class SaveLogic {
     public SaveLogic(MealLogic meals, TimeLogic time) {
         this.meals = meals;
         this.time = time;
-        saveFile = new SavePersistence(this); //will load the last save if there is one
+        saveFile = new SavePersistence(); //will load the last save if there is one
         Timer recurring = new Timer();
         recurring.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -26,7 +26,7 @@ public class SaveLogic {
         }, 10000, 30000); //divide by 1,000 to get the number in seconds
     }
 
-    public void saveGame() {saveFile.save(meals);}
+    public void saveGame() {saveFile.save();}
 
     public void loadGame() {saveFile.load();}
 
