@@ -2,6 +2,7 @@ package comp3350.overfeed.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -59,4 +60,20 @@ public class MainActivity extends AppCompatActivity {
         counterTextView = (TextView)findViewById(R.id.counterView);
         counterTextView.setText(mealLogic.mealsToString());
     }
+
+    //     OnClick methods for Tab Items
+    public void tabStatisticsOnClick(View v)
+    {
+        Intent statisticsIntent = new Intent(MainActivity.this, StatisticsActivity.class);
+        Bundle extras = new Bundle();
+
+        int[] currTime = timeLogic.formatTime();
+        extras.putString("TIME_MINUTES", Integer.toString(currTime[1]));
+        extras.putString("TIME_SECONDS", String.format("%02d", currTime[0]));
+        extras.putString("NUMBER_CLICKS", mealLogic.mealsToString());
+        statisticsIntent.putExtras(extras);
+
+        MainActivity.this.startActivity(statisticsIntent);
+    }
+
 }
