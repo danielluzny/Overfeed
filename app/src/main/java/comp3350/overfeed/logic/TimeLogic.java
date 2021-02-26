@@ -17,7 +17,7 @@ public class TimeLogic
 
     public void calculateTime() // Time is in seconds
     {
-        int seconds = (int) ((System.currentTimeMillis() - startTime) / 1000); // divide by 1000 here because 1000ms == 1s
+        int seconds = (int)((System.currentTimeMillis() - startTime)/1000); // divide by 1000 here because 1000ms == 1s
         timePersistence.setCurrTime(seconds);
     }
 
