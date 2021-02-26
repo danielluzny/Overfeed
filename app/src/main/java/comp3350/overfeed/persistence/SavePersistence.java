@@ -1,7 +1,6 @@
 package comp3350.overfeed.persistence;
 
-import comp3350.overfeed.logic.MealLogic;
-import comp3350.overfeed.logic.TimeLogic;
+import comp3350.overfeed.persistence.MealPersistence;
 import java.io.File;
 import java.io.*;
 
@@ -27,7 +26,7 @@ public class SavePersistence {
     }
 
     //remove everything from file, add new data to file, send data to database
-    public void save(MealLogic meals, TimeLogic time) {
+    public void save(MealPersistence meals, TimePersistence time) {
         try {
             Writer myWriter = new FileWriter("sessionSaveFile.txt", false);
             myWriter.write(meals.getMeals() + " " + time.getCurrTime());

@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import comp3350.overfeed.R;
 import comp3350.overfeed.logic.MealLogic;
-import comp3350.overfeed.logic.SaveLogic;
 import comp3350.overfeed.logic.TimeLogic;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
         }
     };
     // End timer set up
-
-    // Save logic setup
-    SaveLogic saveLogic = new SaveLogic(mealLogic, timeLogic);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
