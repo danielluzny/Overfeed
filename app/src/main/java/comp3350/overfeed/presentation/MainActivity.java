@@ -17,6 +17,17 @@ public class MainActivity extends AppCompatActivity {
     // Meal logic set up
     MealLogic mealLogic = new MealLogic();
     TextView counterTextView;
+    Handler mealHandler = new Handler();
+    Runnable mealRunnable = new Runnable()
+    {
+        @Override
+        public void run()
+        {
+            counterTextView.setText(mealLogic.mealsToString());
+            mealHandler.postDelayed(this, 1000); // 1000 here because we want the counter to update every second(1000ms). Upgrades are on a per-second timer.
+        }
+    };
+    // End meal set up
 
     // Timer set up
     TimeLogic timeLogic = new TimeLogic();
@@ -47,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
         timerTextView = (TextView)findViewById(R.id.timerTextView);
         timerHandler.post(timerRunnable);
 
+        // Start the thread managing meals/upgrades
+        counterTextView = (TextView)findViewById(R.id.counterView);
+        mealHandler.post(mealRunnable);
+
     }
 
     @Override
@@ -57,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
     public void plateViewOnClick(View v)
     {
         mealLogic.increaseMeals();
-        counterTextView = (TextView)findViewById(R.id.counterView);
-        counterTextView.setText(mealLogic.mealsToString());
     }
 
     //     OnClick methods for Tab Items
