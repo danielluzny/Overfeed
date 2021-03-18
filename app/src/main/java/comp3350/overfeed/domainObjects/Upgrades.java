@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Upgrades implements Serializable
 {
-    final private int COST_MULTIPLIER = 10; // Determines the cost of the next upgrade purchase
+    final private int COST_MULTIPLIER = 3; // Determines the cost of the next upgrade purchase
 
     final private String id; // Every upgrade has an identification based on the upgrade name (for example: the Plate upgrade would have id="Plate")
     final private int baseValue; // Every upgrade has a base value associated with it to determine how much one of that upgrade is worth.
