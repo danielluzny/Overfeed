@@ -16,9 +16,19 @@ public class AchievementsPersistence {
         this.initializeList();
     }
 
-    public int getNumAchievements()
+    public int getNumAchievementsTotal()
     {
         return this.numAchievements;
+    }
+
+    public int getNumAchievementsDone(){
+        int numDone = 0;
+        for(int i = 0; i< this.numAchievements; i++) {
+            if (this.achievementsList.get(i).getValue()) {
+                numDone++; // Increment numDone for each that returns a getValue of true
+            }
+        }
+        return numDone;
     }
 
     public void initializeList(){

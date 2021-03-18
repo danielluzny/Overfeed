@@ -1,5 +1,6 @@
 package comp3350.overfeed.logic;
 
+import comp3350.overfeed.domainObjects.Achievement;
 import comp3350.overfeed.persistence.AchievementsPersistence;
 
 public class AchievementsLogic {
@@ -10,9 +11,12 @@ public class AchievementsLogic {
             achievementsPersistence = new AchievementsPersistence();
         }
 
-    public int getNumAchievements(){ return achievementsPersistence.getNumAchievements();}
+    public int getNumAchievementsTotal(){ return achievementsPersistence.getNumAchievementsTotal();}
 
-    public void handlePointAchievement(int points){
+    public int getNumAchievementsDone(){ return achievementsPersistence.getNumAchievementsDone();}
+
+    public void checkPointAchievement(int points){
+        // Check if point is reached and
         if (points >= 10 && !achievementsPersistence.getContent(0).getValue()){
             achievementsPersistence.getContent(0).setValue();
         } else if (points >= 25 && !achievementsPersistence.getContent(1).getValue()){
@@ -30,7 +34,10 @@ public class AchievementsLogic {
         } else if (points >= 2500 && !achievementsPersistence.getContent(7).getValue()){
             achievementsPersistence.getContent(7).setValue();
         }
+    }
 
+    public Achievement getContent(int index){
+        return achievementsPersistence.getContent(index);
     }
 
 }
