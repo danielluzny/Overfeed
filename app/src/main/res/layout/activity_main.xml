@@ -21,11 +21,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
+
     <Button
         android:id="@+id/plateView"
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="202dp"
-        android:layout_height="141dp"
+        android:layout_width="292dp"
+        android:layout_height="223dp"
         android:backgroundTint="#AC8787"
         android:fontFamily="casual"
         android:onClick="plateViewOnClick"
@@ -35,51 +36,51 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.341" />
 
     <TextView
         android:id="@+id/counterView"
-        android:layout_width="93dp"
-        android:layout_height="53dp"
+        android:layout_width="180dp"
+        android:layout_height="74dp"
         android:fontFamily="casual"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="36sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/plateView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/timerTextView"
-        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintHorizontal_bias="0.689"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.137" />
-
+        app:layout_constraintVertical_bias="0.159" />
 
     <Button
         android:id="@+id/buttonStatistics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="168dp"
+        android:layout_height="89dp"
         android:fontFamily="casual"
         android:onClick="tabStatisticsOnClick"
         android:text="@string/statistics"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951" />
+        app:layout_constraintVertical_bias="0.899" />
 
     <Button
         android:id="@+id/buttonUpgrades"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="168dp"
+        android:layout_height="89dp"
         android:fontFamily="casual"
         android:onClick="upgradeViewOnClick"
         android:text="@string/upgrades"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
+        app:layout_constraintVertical_bias="0.772" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,33 +6,230 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/plateUpgradeDesc"
+        android:layout_width="247dp"
+        android:layout_height="54dp"
+        android:fontFamily="casual"
+        android:text="@string/plateUpgradeDescription"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.067" />
+
+    <Button
+        android:id="@+id/workerUpgradeButton"
+        android:layout_width="245dp"
+        android:layout_height="135dp"
+        android:backgroundTint="#F44336"
+        android:fontFamily="casual"
+        android:onClick="workerUpgradeOnClick"
+        android:text="@string/workerUpgradeButton"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282" />
+
     <Button
         android:id="@+id/plateUpgradeButton"
-        android:layout_width="201dp"
+        android:layout_width="245dp"
         android:layout_height="135dp"
+        android:background="@color/black"
+        android:backgroundTint="#AC8787"
         android:fontFamily="casual"
         android:onClick="plateUpgradeViewOnClick"
         android:text="@string/plateUpgradeButton"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.124" />
+        app:layout_constraintVertical_bias="0.069" />
 
-    <TextView
-        android:id="@+id/plateUpgradeDesc"
-        android:layout_width="248dp"
-        android:layout_height="119dp"
+    <Button
+        android:id="@+id/restaurantUpgradeButton"
+        android:layout_width="245dp"
+        android:layout_height="135dp"
+        android:backgroundTint="#FFC107"
         android:fontFamily="casual"
-        android:text="@string/plateUpgradeDescription"
-        android:textSize="24sp"
+        android:onClick="restaurantUpgradeOnClick"
+        android:text="@string/restaurantUpgradeButton"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintVertical_bias="0.715" />
+
+    <Button
+        android:id="@+id/lambSauceUpgradeButton"
+        android:layout_width="245dp"
+        android:layout_height="135dp"
+        android:backgroundTint="#3F51B5"
+        android:fontFamily="casual"
+        android:onClick="lambSauceUpgradeOnClick"
+        android:text="@string/lambSauceUpgradeButton"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.935" />
+
+    <Button
+        android:id="@+id/foodTruckUpgradeButton"
+        android:layout_width="245dp"
+        android:layout_height="135dp"
+        android:backgroundTint="#009688"
+        android:fontFamily="casual"
+        android:onClick="foodTruckUpgradeOnClick"
+        android:text="@string/foodTruckUpgradeButton"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/workerUpgradeDesc"
+        android:layout_width="247dp"
+        android:layout_height="54dp"
+        android:fontFamily="casual"
+        android:text="@string/workerUpgradeDescription"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.257" />
+
+    <TextView
+        android:id="@+id/plateUpgradeValues"
+        android:layout_width="247dp"
+        android:layout_height="54dp"
+        android:fontFamily="casual"
+        android:text="@string/plateUpgradeValues"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.152" />
+
+    <TextView
+        android:id="@+id/foodTruckUpgradeDesc"
+        android:layout_width="247dp"
+        android:layout_height="54dp"
+        android:fontFamily="casual"
+        android:text="@string/foodTruckUpgradeDesc"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.455" />
+
+    <TextView
+        android:id="@+id/foodTruckUpgradeValues"
+        android:layout_width="247dp"
+        android:layout_height="54dp"
+        android:fontFamily="casual"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.545" />
+
+    <TextView
+        android:id="@+id/restaurantUpgradeDesc"
+        android:layout_width="247dp"
+        android:layout_height="54dp"
+        android:fontFamily="casual"
+        android:text="@string/restaurantUpgradeDesc"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.651" />
+
+    <TextView
+        android:id="@+id/restaurantUpgradeValues"
+        android:layout_width="247dp"
+        android:layout_height="54dp"
+        android:fontFamily="casual"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74" />
+
+    <TextView
+        android:id="@+id/lambSauceUpgradeDesc"
+        android:layout_width="247dp"
+        android:layout_height="54dp"
+        android:fontFamily="casual"
+        android:text="@string/lambSauceUpgradeDesc"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.852" />
+
+    <TextView
+        android:id="@+id/lambSauceUpgradeValues"
+        android:layout_width="247dp"
+        android:layout_height="54dp"
+        android:fontFamily="casual"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.941" />
+
+    <TextView
+        android:id="@+id/workerUpgradeValues"
+        android:layout_width="247dp"
+        android:layout_height="54dp"
+        android:fontFamily="casual"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.346" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
