@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import comp3350.overfeed.R;
 import comp3350.overfeed.logic.MealLogic;
 import comp3350.overfeed.logic.TimeLogic;
@@ -59,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         mealLogic.increaseMeals();
         counterTextView = (TextView)findViewById(R.id.counterView);
         counterTextView.setText(mealLogic.mealsToString());
+//        Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Test beep boop", Snackbar.LENGTH_SHORT);
+//        mySnackbar.show();
     }
 
     //     OnClick methods for Tab Items
@@ -74,6 +78,19 @@ public class MainActivity extends AppCompatActivity {
         statisticsIntent.putExtras(extras);
 
         MainActivity.this.startActivity(statisticsIntent);
+    }
+    public void tabAchievementsOnClick(View v)
+    {
+        Intent achievementsIntent = new Intent(MainActivity.this, AchievementsActivity.class);
+//        Bundle extras = new Bundle();
+
+//        int[] currTime = timeLogic.formatTime();
+//        extras.putString("TIME_MINUTES", Integer.toString(currTime[1]));
+//        extras.putString("TIME_SECONDS", String.format("%02d", currTime[0]));
+//        extras.putString("NUMBER_CLICKS", mealLogic.mealsToString());
+//        achievementsIntent.putExtras(extras);
+
+        MainActivity.this.startActivity(achievementsIntent);
     }
 
 }
