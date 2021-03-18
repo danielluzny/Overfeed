@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Overfeed">
         <activity android:name=".presentation.StatisticsActivity"></activity>
+        <activity android:name=".presentation.UpgradesActivity"></activity>
         <activity android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -55,13 +55,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Start the timer on app start up
-        timerTextView = (TextView)findViewById(R.id.timerTextView);
+        timerTextView = findViewById(R.id.timerTextView);
         timerHandler.post(timerRunnable);
 
         // Start the thread managing meals/upgrades
-        counterTextView = (TextView)findViewById(R.id.counterView);
+        counterTextView = findViewById(R.id.counterView);
         mealHandler.post(mealRunnable);
-
     }
 
     @Override
@@ -71,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void plateViewOnClick(View v)
     {
+        mealLogic.incrementClicks();
         mealLogic.increaseMeals();
     }
 
-    //     OnClick methods for Tab Items
     public void tabStatisticsOnClick(View v)
     {
         Intent statisticsIntent = new Intent(MainActivity.this, StatisticsActivity.class);
@@ -83,10 +82,17 @@ public class MainActivity extends AppCompatActivity {
         int[] currTime = timeLogic.formatTime();
         extras.putString("TIME_MINUTES", Integer.toString(currTime[1]));
         extras.putString("TIME_SECONDS", String.format("%02d", currTime[0]));
-        extras.putString("NUMBER_CLICKS", mealLogic.mealsToString());
+        extras.putString("NUMBER_CLICKS", mealLogic.clicksToString());
         statisticsIntent.putExtras(extras);
 
         MainActivity.this.startActivity(statisticsIntent);
+    }
+
+    public void upgradeViewOnClick(View v)
+    {
+        Intent upgradesIntent = new Intent(MainActivity.this, UpgradesActivity.class);
+
+        MainActivity.this.startActivity(upgradesIntent);
     }
 
 }
