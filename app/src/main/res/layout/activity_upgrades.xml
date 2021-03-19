@@ -121,7 +121,6 @@
         android:layout_width="247dp"
         android:layout_height="54dp"
         android:fontFamily="casual"
-        android:text="@string/plateUpgradeValues"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

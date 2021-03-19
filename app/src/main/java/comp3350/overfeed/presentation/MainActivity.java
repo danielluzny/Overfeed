@@ -40,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
                 mealLogic.autoIncreaseMeals();
                 counterTextView.setText(mealLogic.mealsToString());
             }
+
+            if(achLogic.checkClickAchievement(mealLogic.getMeals())){
+                String newAchievement = achLogic.getNewAchievement().getName();
+                Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Achievement Unlocked! "+ newAchievement, Snackbar.LENGTH_SHORT);
+                mySnackbar.show();
+            }
+
             mealHandler.postDelayed(this, 1000); // 1000 here because we want the counter to update every second(1000ms). Upgrades are on a per-second timer.
         }
     };
@@ -126,12 +133,6 @@ public class MainActivity extends AppCompatActivity {
         mealLogic.increaseMeals();
         counterTextView = (TextView)findViewById(R.id.counterView);
         counterTextView.setText(mealLogic.mealsToString());
-
-        if(achLogic.checkClickAchievement(mealLogic.getMeals())){
-            String newAchievement = achLogic.getNewAchievement().getName();
-            Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Achievement Unlocked! "+ newAchievement, Snackbar.LENGTH_SHORT);
-            mySnackbar.show();
-        }
     }
 
     //     OnClick methods for Tab Items (Statistics, Achievements)
