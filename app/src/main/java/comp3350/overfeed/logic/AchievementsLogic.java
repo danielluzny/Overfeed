@@ -51,6 +51,7 @@ public class AchievementsLogic implements Serializable {
             ShowSnackbar = true;
         }
         achievementsPersistence.updateSize();
+        updateNumDone();
         return ShowSnackbar;
     }
 
@@ -63,6 +64,16 @@ public class AchievementsLogic implements Serializable {
         }
 
         return thisAch;
+    }
+
+    public void updateNumDone(){
+        int numberDone = 0;
+        for(int i = 0; i< achievementsPersistence.getNumAchievementsTotal(); i++) {
+            if (achievementsPersistence.getContent(i).getValue()) {
+                numberDone++; // Increment numDone for each that returns a getValue of true
+            }
+        }
+        achievementsPersistence.setNumDone(numberDone);
     }
 
     public int getPercentageDone(){

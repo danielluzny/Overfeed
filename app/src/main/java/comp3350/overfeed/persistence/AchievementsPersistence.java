@@ -57,19 +57,17 @@ public class AchievementsPersistence implements Serializable {
         this.achievementsList.add(masterAchieve);
 
         this.updateSize();
+        this.setNumDone(0);
     }
 
     public ArrayList<Achievement> getList() { return this.achievementsList; }
 
     public void updateSize(){
         this.numAchievements = this.achievementsList.size();
-        int numberDone = 0;
-        for(int i = 0; i< this.numAchievements; i++) {
-            if (this.achievementsList.get(i).getValue()) {
-                numberDone++; // Increment numDone for each that returns a getValue of true
-            }
-        }
-        this.numDone = numberDone;
+    }
+
+    public void setNumDone(int numDone) {
+        this.numDone = numDone;
     }
 
     public Achievement getContent(int n){ return this.achievementsList.get(n);}
