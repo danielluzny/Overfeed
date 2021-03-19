@@ -10,5 +10,8 @@
     <string name="total_number_of_clicks">Total number of clicks</string>
     <string name="total_amount_of_meals_made">Total amount of meals made</string>
     <string name="back">Back</string>
+    <string name="textview">TextView</string>
+    <string name="achievements">Achievements</string>
+    <string name="achievements_list">Achievements List</string>
 
 </resources>

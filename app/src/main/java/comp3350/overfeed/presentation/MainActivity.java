@@ -8,7 +8,10 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import comp3350.overfeed.R;
+import comp3350.overfeed.logic.AchievementsLogic;
 import comp3350.overfeed.logic.MealLogic;
 import comp3350.overfeed.logic.TimeLogic;
 
@@ -16,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     // Meal logic set up
     MealLogic mealLogic = new MealLogic();
+    // Achievements logic set up
+    AchievementsLogic achLogic = new AchievementsLogic();
     TextView counterTextView;
 
     // Timer set up
@@ -59,9 +64,15 @@ public class MainActivity extends AppCompatActivity {
         mealLogic.increaseMeals();
         counterTextView = (TextView)findViewById(R.id.counterView);
         counterTextView.setText(mealLogic.mealsToString());
+
+        if(achLogic.checkClickAchievement(mealLogic.getMeals())){
+            String newAchievement = achLogic.getNewAchievement().getName();
+            Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Achievement Unlocked! "+ newAchievement, Snackbar.LENGTH_SHORT);
+            mySnackbar.show();
+        }
     }
 
-    //     OnClick methods for Tab Items
+    //     OnClick methods for Tab Items (Statistics, Achievements)
     public void tabStatisticsOnClick(View v)
     {
         Intent statisticsIntent = new Intent(MainActivity.this, StatisticsActivity.class);
@@ -75,5 +86,29 @@ public class MainActivity extends AppCompatActivity {
 
         MainActivity.this.startActivity(statisticsIntent);
     }
+
+    public void tabAchievementsOnClick(View v)
+    {
+        Bundle extra = new Bundle();
+        Intent achievementsIntent = new Intent(MainActivity.this, AchievementsActivity.class);
+        achievementsIntent.putExtra("ACH_LOGIC", achLogic);
+        extra.putInt("NUM_CLICKS", mealLogic.getClicks());
+        achievementsIntent.putExtras(extra);
+        MainActivity.this.startActivityForResult(achievementsIntent, 2);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==2)
+        {
+            if(resultCode == RESULT_OK)
+            {
+                achLogic = (AchievementsLogic)data.getExtras().getSerializable("ACH_LOGIC");
+            }
+        }
+    }
+
+
 
 }
