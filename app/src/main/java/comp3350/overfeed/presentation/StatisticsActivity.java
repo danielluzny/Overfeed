@@ -14,7 +14,6 @@ public class StatisticsActivity extends AppCompatActivity {
     TextView textTotalClicks;
     TextView textCurrentTime;
     TextView textTotalMeals;
-//    TextView textTotalTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,6 +24,7 @@ public class StatisticsActivity extends AppCompatActivity {
         Intent mainIntent = getIntent();
         Bundle extras = mainIntent.getExtras();
 
+        String meals_string = extras.getString("NUMBER_MEALS");
         String clicks_string = extras.getString("NUMBER_CLICKS");
         String minutes_string = extras.getString("TIME_MINUTES");
         String seconds_string = extras.getString("TIME_SECONDS");
@@ -33,7 +33,7 @@ public class StatisticsActivity extends AppCompatActivity {
         textCurrentTime = (TextView)findViewById(R.id.textCurrentTime);
         textTotalMeals = (TextView)findViewById(R.id.textTotalMeals);
         textTotalClicks.setText(clicks_string);
-        textTotalMeals.setText(clicks_string);
+        textTotalMeals.setText(meals_string);
         textCurrentTime.setText(minutes_string+":"+seconds_string);
     }
 

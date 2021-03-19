@@ -10,5 +10,28 @@
     <string name="total_number_of_clicks">Total number of clicks</string>
     <string name="total_amount_of_meals_made">Total amount of meals made</string>
     <string name="back">Back</string>
+    <string name="textview">TextView</string>
+    <string name="achievements">Achievements</string>
+    <string name="achievements_list">Achievements List</string>
+    <string name="buttonsave">buttonSave</string>
+
+
+    <string name="plateUpgradeButton">Plate</string>
+    <string name="plateUpgradeDescription">Increases the number of meals made per click!</string>
+    <string name="plateUpgradeValues"></string>
+
+    <string name="workerUpgradeButton">Worker</string>
+    <string name="workerUpgradeDescription">Additional workers to help create meals!</string>
+
+    <string name="foodTruckUpgradeButton">Food Truck</string>
+    <string name="foodTruckUpgradeDesc">Food trucks can deliver meals straight to your door!</string>
+
+    <string name="restaurantUpgradeButton">Restaurant</string>
+    <string name="restaurantUpgradeDesc">Restaurants produce massive amounts of food per second!</string>
+
+    <string name="lambSauceUpgradeButton">Lamb Sauce</string>
+    <string name="lambSauceUpgradeDesc">Eviscerate all competition with one drop of this sacred ingredient!</string>
+    <string name="save">Save</string>
+
 
 </resources>
