@@ -1,6 +1,8 @@
 package comp3350.overfeed.persistence;
 
-public class MealPersistence
+import java.io.Serializable;
+
+public class MealPersistence implements Serializable
 {
     private int numMeals;
     private int numClicks;

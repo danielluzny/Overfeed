@@ -15,10 +15,11 @@
         android:progressDrawable="@drawable/circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058"
-        tools:progress="60"/>
+        app:layout_constraintVertical_bias="0.03"
+        tools:progress="0" />
 
     <TextView
         android:id="@+id/percentProgress"
@@ -32,35 +33,38 @@
         app:layout_constraintStart_toStartOf="@+id/progressBar"
         app:layout_constraintTop_toTopOf="@+id/progressBar"
         app:layout_constraintVertical_bias="0.493"
-        tools:text="60%" />
+        tools:text="0%" />
 
     <TextView
         android:id="@+id/textAchieve1"
         android:layout_width="357dp"
         android:layout_height="30dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="casual"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+        app:layout_constraintTop_toBottomOf="@id/textAchievementsList" />
 
     <TextView
         android:id="@+id/textAchieve2"
         android:layout_width="357dp"
         android:layout_height="30dp"
         android:fontFamily="casual"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAchieve1"
-        app:layout_constraintVertical_bias="0.025" />
+        app:layout_constraintVertical_bias="0.073" />
 
     <TextView
         android:id="@+id/textAchieve3"
         android:layout_width="357dp"
         android:layout_height="30dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="casual"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAchieve2" />
@@ -69,8 +73,9 @@
         android:id="@+id/textAchieve4"
         android:layout_width="357dp"
         android:layout_height="30dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="casual"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAchieve3" />
@@ -79,7 +84,9 @@
         android:id="@+id/textAchieve5"
         android:layout_width="357dp"
         android:layout_height="30dp"
-        android:layout_marginTop="12dp"
+        android:fontFamily="casual"
+        android:textSize="24sp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAchieve4" />
@@ -88,7 +95,9 @@
         android:id="@+id/textAchieve6"
         android:layout_width="357dp"
         android:layout_height="30dp"
-        android:layout_marginTop="12dp"
+        android:fontFamily="casual"
+        android:textSize="24sp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAchieve5" />
@@ -97,9 +106,10 @@
         android:id="@+id/textAchieve7"
         android:layout_width="357dp"
         android:layout_height="30dp"
-        android:layout_marginTop="12dp"
+        android:fontFamily="casual"
+        android:textSize="24sp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAchieve6" />
 
@@ -107,10 +117,122 @@
         android:id="@+id/textAchieve8"
         android:layout_width="357dp"
         android:layout_height="30dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="casual"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAchieve7" />
+
+    <TextView
+        android:id="@+id/textAchievementsList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="@string/achievements_list"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textAchieve1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintVertical_bias="0.52" />
+
+    <TextView
+        android:id="@+id/textAchDesc1"
+        android:layout_width="357dp"
+        android:layout_height="20dp"
+        android:fontFamily="casual"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textAchieve2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAchieve1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textAchDesc2"
+        android:layout_width="357dp"
+        android:layout_height="20dp"
+        android:fontFamily="casual"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textAchieve3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAchieve2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textAchDesc3"
+        android:layout_width="357dp"
+        android:layout_height="20dp"
+        android:fontFamily="casual"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textAchieve4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAchieve3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textAchDesc4"
+        android:layout_width="357dp"
+        android:layout_height="20dp"
+        android:fontFamily="casual"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textAchieve5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAchieve4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textAchDesc5"
+        android:layout_width="357dp"
+        android:layout_height="20dp"
+        android:fontFamily="casual"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textAchieve6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAchieve5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textAchDesc6"
+        android:layout_width="357dp"
+        android:layout_height="20dp"
+        android:fontFamily="casual"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textAchieve7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAchieve6"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textAchDesc7"
+        android:layout_width="357dp"
+        android:layout_height="20dp"
+        android:fontFamily="casual"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textAchieve8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAchieve7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textAchDesc8"
+        android:layout_width="357dp"
+        android:layout_height="20dp"
+        android:fontFamily="casual"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAchieve8"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,10 @@
 package comp3350.overfeed.logic;
 
+import java.io.Serializable;
+
 import comp3350.overfeed.persistence.MealPersistence;
 
-public class MealLogic
+public class MealLogic implements Serializable
 {
     private MealPersistence mealPersistence;
 

@@ -1,6 +1,8 @@
 package comp3350.overfeed.domainObjects;
 
-public class Achievement {
+import java.io.Serializable;
+
+public class Achievement implements Serializable {
 
     private String name;
     private String description;

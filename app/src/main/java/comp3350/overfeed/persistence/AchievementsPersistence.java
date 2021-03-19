@@ -1,18 +1,21 @@
 package comp3350.overfeed.persistence;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import comp3350.overfeed.domainObjects.Achievement;
 
-public class AchievementsPersistence {
+public class AchievementsPersistence implements Serializable {
 
     private int numAchievements;
     private ArrayList<Achievement>  achievementsList;
+    private int numDone;
 
     public AchievementsPersistence()
     {
         this.achievementsList = new ArrayList<Achievement>();
         this.numAchievements = achievementsList.size();
+        this.numDone = 0;
         this.initializeList();
     }
 
@@ -21,14 +24,9 @@ public class AchievementsPersistence {
         return this.numAchievements;
     }
 
-    public int getNumAchievementsDone(){
-        int numDone = 0;
-        for(int i = 0; i< this.numAchievements; i++) {
-            if (this.achievementsList.get(i).getValue()) {
-                numDone++; // Increment numDone for each that returns a getValue of true
-            }
-        }
-        return numDone;
+    public int getNumAchievementsDone()
+    {
+        return this.numDone;
     }
 
     public void initializeList(){
@@ -57,12 +55,24 @@ public class AchievementsPersistence {
 
         Achievement masterAchieve = new Achievement("A true Master chef!", "Make food 2500 times.");
         this.achievementsList.add(masterAchieve);
+
+        this.updateSize();
     }
 
     public ArrayList<Achievement> getList() { return this.achievementsList; }
 
-    public Achievement getContent(int n){ return this.achievementsList.get(n);}
+    public void updateSize(){
+        this.numAchievements = this.achievementsList.size();
+        int numberDone = 0;
+        for(int i = 0; i< this.numAchievements; i++) {
+            if (this.achievementsList.get(i).getValue()) {
+                numberDone++; // Increment numDone for each that returns a getValue of true
+            }
+        }
+        this.numDone = numberDone;
+    }
 
+    public Achievement getContent(int n){ return this.achievementsList.get(n);}
 
 }
 
