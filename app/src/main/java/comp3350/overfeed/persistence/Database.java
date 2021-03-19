@@ -9,9 +9,14 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.List;
 
+import static comp3350.srsys.application.Services.getIDatabase;
+import static comp3350.srsys.application.Services.getMealPersistence;
+import static comp3350.srsys.application.Services.getTimePersistence;
+
 public class Database implements IDatabase {
 
     private final String dbPath;
+    private static int NUMSTATEVAR = 3;
     private HashMap<String, Long> savedData;
 
     public Database(final String dbPath) {
@@ -25,14 +30,23 @@ public class Database implements IDatabase {
     @Override
     public boolean saveAll() {
         boolean result = false;
-        try {
+        try (final Connection c = connection()){
+            //save(c, persistence, value);
+            //repeat save calls
 
             result = true;
         }
-        catch (Exception e){
+        catch (final SQLException e){
             System.out.println("Save failed");
         }
         return result;
+    }
+
+    private void save(Connection con, String tag, Long value) throws SQLException {
+        final PreparedStatement st = con.prepareStatement("INSERT INTO savefile VALUES(?, ?)");
+        st.setString(1, tag);
+        st.setLong(2, value);
+        st.executeUpdate();
     }
 
     @Override
@@ -44,6 +58,13 @@ public class Database implements IDatabase {
             final ResultSet rs = st.executeQuery("SELECT * FROM savefile");
             while (rs.next()) {
                 savedData.put(rs.getString("componentID"), rs.getLong("componentValue"));
+            }
+            if(savedData.isEmpty()) {
+                getMealPersistence();
+                getTimePersistence();
+                getIDatabase();
+            } else {
+                //call each setter method for state variables, passing arguments from savedData.
             }
             rs.close();
             st.close();

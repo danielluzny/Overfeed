@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     // Meal logic set up
     MealLogic mealLogic = new MealLogic();
     TextView counterTextView;
+    private static String dbName="SF";
 
     // Timer set up
     TimeLogic timeLogic = new TimeLogic();
@@ -76,4 +77,20 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(statisticsIntent);
     }
 
+    public static void setDBPathName(final String name) {
+        try {
+            Class.forName("org.hsqldb.jdbcDriver").newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        dbName = name;
+    }
+
+    public static String getDBPathName() {
+        return dbName;
+    }
 }

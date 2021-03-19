@@ -4,6 +4,7 @@ import comp3350.overfeed.persistence.IDatabase;
 import comp3350.overfeed.persistence.TimePersistence;
 import comp3350.overfeed.persistence.MealPersistence;
 import comp3350.overfeed.persistence.Database;
+import comp3350.overfeed.presentation.MainActivity;
 
 public class Services
 {
@@ -36,7 +37,7 @@ public class Services
 	public static synchronized IDatabase getIDatabase() {
         if (iDatabase == null) {
             // IDatabase = new IDatabaseStub();
-            iDatabase = new Database(Main.getDBPathName());
+            iDatabase = new Database(MainActivity.getDBPathName());
         }
 
         return iDatabase;
