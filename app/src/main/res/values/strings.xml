@@ -18,7 +18,6 @@
 
     <string name="plateUpgradeButton">Plate</string>
     <string name="plateUpgradeDescription">Increases the number of meals made per click!</string>
-    <string name="plateUpgradeValues"></string>
 
     <string name="workerUpgradeButton">Worker</string>
     <string name="workerUpgradeDescription">Additional workers to help create meals!</string>

@@ -37,7 +37,7 @@
 
     <TextView
         android:id="@+id/textAchieve1"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:fontFamily="casual"
@@ -48,7 +48,7 @@
 
     <TextView
         android:id="@+id/textAchieve2"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="30dp"
         android:fontFamily="casual"
         android:textSize="24sp"
@@ -60,7 +60,7 @@
 
     <TextView
         android:id="@+id/textAchieve3"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="30dp"
         android:layout_marginTop="28dp"
         android:fontFamily="casual"
@@ -71,7 +71,7 @@
 
     <TextView
         android:id="@+id/textAchieve4"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="30dp"
         android:layout_marginTop="28dp"
         android:fontFamily="casual"
@@ -82,40 +82,40 @@
 
     <TextView
         android:id="@+id/textAchieve5"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="30dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="casual"
         android:textSize="24sp"
-        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAchieve4" />
 
     <TextView
         android:id="@+id/textAchieve6"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="30dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="casual"
         android:textSize="24sp"
-        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAchieve5" />
 
     <TextView
         android:id="@+id/textAchieve7"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="30dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="casual"
         android:textSize="24sp"
-        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAchieve6" />
 
     <TextView
         android:id="@+id/textAchieve8"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="30dp"
         android:layout_marginTop="28dp"
         android:fontFamily="casual"
@@ -141,7 +141,7 @@
 
     <TextView
         android:id="@+id/textAchDesc1"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="20dp"
         android:fontFamily="casual"
         android:textSize="18sp"
@@ -153,7 +153,7 @@
 
     <TextView
         android:id="@+id/textAchDesc2"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="20dp"
         android:fontFamily="casual"
         android:textSize="18sp"
@@ -165,7 +165,7 @@
 
     <TextView
         android:id="@+id/textAchDesc3"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="20dp"
         android:fontFamily="casual"
         android:textSize="18sp"
@@ -177,7 +177,7 @@
 
     <TextView
         android:id="@+id/textAchDesc4"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="20dp"
         android:fontFamily="casual"
         android:textSize="18sp"
@@ -189,7 +189,7 @@
 
     <TextView
         android:id="@+id/textAchDesc5"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="20dp"
         android:fontFamily="casual"
         android:textSize="18sp"
@@ -201,7 +201,7 @@
 
     <TextView
         android:id="@+id/textAchDesc6"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="20dp"
         android:fontFamily="casual"
         android:textSize="18sp"
@@ -213,7 +213,7 @@
 
     <TextView
         android:id="@+id/textAchDesc7"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="20dp"
         android:fontFamily="casual"
         android:textSize="18sp"
@@ -225,7 +225,7 @@
 
     <TextView
         android:id="@+id/textAchDesc8"
-        android:layout_width="357dp"
+        android:layout_width="380dp"
         android:layout_height="20dp"
         android:fontFamily="casual"
         android:textSize="18sp"
