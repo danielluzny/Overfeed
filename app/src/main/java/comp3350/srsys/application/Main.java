@@ -1,10 +1,9 @@
 package comp3350.srsys.application;
 
-import comp3350.srsys.presentation.CLI;
 
 public class Main
 {
-	private static String dbName="SC";
+	private static String dbName="SF";
 
 	public static void main(String[] args)
 	{
