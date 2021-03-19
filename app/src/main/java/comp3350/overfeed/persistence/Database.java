@@ -28,18 +28,15 @@ public class Database implements IDatabase {
     }
 
     @Override
-    public boolean saveAll() {
-        boolean result = false;
+    public void saveAll() {
         try (final Connection c = connection()){
             //save(c, persistence, value);
             //repeat save calls
-
-            result = true;
+            System.out.println("saveAll called");
         }
         catch (final SQLException e){
             System.out.println("Save failed");
         }
-        return result;
     }
 
     private void save(Connection con, String tag, Long value) throws SQLException {
@@ -50,8 +47,7 @@ public class Database implements IDatabase {
     }
 
     @Override
-    public boolean loadAll() {
-        boolean result = false;
+    public void loadAll() {
         final HashMap<String, Long> saveFile = new HashMap<String, Long>();
         try (final Connection c = connection()){
             final Statement st = c.createStatement();
@@ -68,12 +64,9 @@ public class Database implements IDatabase {
             }
             rs.close();
             st.close();
-
-            result = true;
         }
         catch (final SQLException e){
             System.out.println("Load failed");
         }
-        return result;
     }
 }

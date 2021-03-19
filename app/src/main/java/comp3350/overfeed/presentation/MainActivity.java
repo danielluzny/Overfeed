@@ -10,10 +10,14 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.TimerTask;
+import java.util.Timer;
+
 import comp3350.overfeed.R;
 import comp3350.overfeed.logic.AchievementsLogic;
 import comp3350.overfeed.logic.MealLogic;
 import comp3350.overfeed.logic.TimeLogic;
+import comp3350.overfeed.persistence.Database;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     AchievementsLogic achLogic = new AchievementsLogic();
 
     TextView counterTextView;
-    private static String dbName="SF";
     Handler mealHandler = new Handler();
     boolean automationFlag = true;
     Runnable mealRunnable = new Runnable()
@@ -61,6 +64,16 @@ public class MainActivity extends AppCompatActivity {
     };
     // End timer set up
 
+    //Database set up
+    private static String dbName="SF";
+    Database database = new Database(dbName);
+    TimerTask saveNow = new TimerTask()
+    {
+        public void run() {
+            database.saveAll();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -74,6 +87,12 @@ public class MainActivity extends AppCompatActivity {
         // Start the thread managing meals/upgrades
         counterTextView = findViewById(R.id.counterView);
         mealHandler.post(mealRunnable);
+
+        // start the thread managing the database
+        database.loadAll();//load saved data if it exists
+        Timer timer = new Timer("dbTimer", true);
+        long delay = 10000; //10 second delay
+        timer.scheduleAtFixedRate(saveNow, delay, delay);//wait 10sec, run, repeat
     }
 
     @Override
@@ -131,22 +150,10 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(statisticsIntent);
     }
 
-    public static void setDBPathName(final String name) {
-        try {
-            Class.forName("org.hsqldb.jdbcDriver").newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        dbName = name;
-    }
-
     public static String getDBPathName() {
         return dbName;
     }
+
     public void upgradeViewOnClick(View v)
     {
         Intent upgradesIntent = new Intent(MainActivity.this, UpgradesActivity.class);
@@ -167,4 +174,22 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivityForResult(achievementsIntent, 2);
     }
 
+    public void saveAllOnClick(View v)
+    {
+        database.saveAll();
+    }
+
+    public static void setDBPathName(final String name)
+    {
+        try {
+            Class.forName("org.hsqldb.jdbcDriver").newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        dbName = name;
+    }
 }
