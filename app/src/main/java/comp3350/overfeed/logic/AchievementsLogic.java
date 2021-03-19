@@ -11,10 +11,7 @@ public class AchievementsLogic implements Serializable {
     public AchievementsLogic()
         {
             achievementsPersistence = new AchievementsPersistence();
-//            checkClickAchievement(0);
         }
-
-    public int getNumAchievementsTotal(){ return achievementsPersistence.getNumAchievementsTotal();}
 
     public int getNumAchievementsDone(){ return achievementsPersistence.getNumAchievementsDone();}
 
