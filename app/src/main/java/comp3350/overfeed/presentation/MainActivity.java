@@ -150,10 +150,6 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(statisticsIntent);
     }
 
-    public static String getDBPathName() {
-        return dbName;
-    }
-
     public void upgradeViewOnClick(View v)
     {
         Intent upgradesIntent = new Intent(MainActivity.this, UpgradesActivity.class);
@@ -191,5 +187,9 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         dbName = name;
+    }
+
+    public static String getDBPathName() {
+        return dbName;
     }
 }

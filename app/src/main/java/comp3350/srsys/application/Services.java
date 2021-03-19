@@ -4,6 +4,7 @@ import comp3350.overfeed.persistence.IDatabase;
 import comp3350.overfeed.persistence.TimePersistence;
 import comp3350.overfeed.persistence.MealPersistence;
 import comp3350.overfeed.persistence.Database;
+import comp3350.overfeed.persistence.AchievementsPersistence;
 import comp3350.overfeed.presentation.MainActivity;
 
 public class Services
@@ -11,6 +12,7 @@ public class Services
 	private static MealPersistence mealPersistence = null;
 	private static TimePersistence timePersistence = null;
 	private static IDatabase iDatabase = null;
+	private static AchievementsPersistence achievementsPersistence = null;
 
 	public static synchronized MealPersistence getMealPersistence()
     {
@@ -34,8 +36,21 @@ public class Services
         return timePersistence;
     }
 
-	public static synchronized IDatabase getIDatabase() {
-        if (iDatabase == null) {
+    public static synchronized AchievementsPersistence getAchievementsPersistence()
+    {
+        if (achievementsPersistence == null)
+        {
+            // achievementsPersistence = new AchievementsPersistence();
+            achievementsPersistence = new AchievementsPersistence();
+        }
+
+        return achievementsPersistence;
+    }
+
+	public static synchronized IDatabase getIDatabase()
+    {
+        if (iDatabase == null)
+        {
             // IDatabase = new IDatabaseStub();
             iDatabase = new Database(MainActivity.getDBPathName());
         }
