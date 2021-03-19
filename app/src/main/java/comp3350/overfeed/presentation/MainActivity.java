@@ -19,9 +19,27 @@ public class MainActivity extends AppCompatActivity {
 
     // Meal logic set up
     MealLogic mealLogic = new MealLogic();
+
     // Achievements logic set up
     AchievementsLogic achLogic = new AchievementsLogic();
+
     TextView counterTextView;
+    Handler mealHandler = new Handler();
+    boolean automationFlag = true;
+    Runnable mealRunnable = new Runnable()
+    {
+        @Override
+        public void run()
+        {
+            if(automationFlag)
+            {
+                mealLogic.autoIncreaseMeals();
+                counterTextView.setText(mealLogic.mealsToString());
+            }
+            mealHandler.postDelayed(this, 1000); // 1000 here because we want the counter to update every second(1000ms). Upgrades are on a per-second timer.
+        }
+    };
+    // End meal set up
 
     // Timer set up
     TimeLogic timeLogic = new TimeLogic();
@@ -49,9 +67,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Start the timer on app start up
-        timerTextView = (TextView)findViewById(R.id.timerTextView);
+        timerTextView = findViewById(R.id.timerTextView);
         timerHandler.post(timerRunnable);
 
+        // Start the thread managing meals/upgrades
+        counterTextView = findViewById(R.id.counterView);
+        mealHandler.post(mealRunnable);
     }
 
     @Override
@@ -59,8 +80,29 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode,resultCode,data);
+        if(requestCode==1)
+        {
+            if(resultCode == RESULT_OK)
+            {
+                automationFlag = true;
+                mealLogic = (MealLogic)data.getExtras().getSerializable("MEAL_LOGIC");
+            }
+        }
+        else if(requestCode==2)
+        {
+            if(resultCode == RESULT_OK)
+            {
+                achLogic = (AchievementsLogic)data.getExtras().getSerializable("ACH_LOGIC");
+            }
+        }
+    }
+
     public void plateViewOnClick(View v)
     {
+        mealLogic.incrementClicks();
         mealLogic.increaseMeals();
         counterTextView = (TextView)findViewById(R.id.counterView);
         counterTextView.setText(mealLogic.mealsToString());
@@ -81,10 +123,21 @@ public class MainActivity extends AppCompatActivity {
         int[] currTime = timeLogic.formatTime();
         extras.putString("TIME_MINUTES", Integer.toString(currTime[1]));
         extras.putString("TIME_SECONDS", String.format("%02d", currTime[0]));
-        extras.putString("NUMBER_CLICKS", mealLogic.mealsToString());
+        extras.putString("NUMBER_CLICKS", mealLogic.clicksToString());
+        extras.putString("NUMBER_MEALS", mealLogic.totalMealsToString());
         statisticsIntent.putExtras(extras);
 
         MainActivity.this.startActivity(statisticsIntent);
+    }
+
+    public void upgradeViewOnClick(View v)
+    {
+        Intent upgradesIntent = new Intent(MainActivity.this, UpgradesActivity.class);
+
+        upgradesIntent.putExtra("MEAL_LOGIC", mealLogic);
+        automationFlag = false;
+
+        MainActivity.this.startActivityForResult(upgradesIntent,1);
     }
 
     public void tabAchievementsOnClick(View v)
@@ -96,19 +149,5 @@ public class MainActivity extends AppCompatActivity {
         achievementsIntent.putExtras(extra);
         MainActivity.this.startActivityForResult(achievementsIntent, 2);
     }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==2)
-        {
-            if(resultCode == RESULT_OK)
-            {
-                achLogic = (AchievementsLogic)data.getExtras().getSerializable("ACH_LOGIC");
-            }
-        }
-    }
-
-
 
 }
