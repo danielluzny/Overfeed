@@ -17,25 +17,28 @@ import comp3350.overfeed.logic.TimeLogic;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Meal logic set up
     MealLogic mealLogic = new MealLogic();
-
-    // Achievements logic set up
     AchievementsLogic achLogic = new AchievementsLogic();
+    TimeLogic timeLogic = new TimeLogic();
 
-    TextView counterTextView;
+    // Handler and TextViews are for running the thread and updating the timer/meals fields.
     Handler mealHandler = new Handler();
-    boolean automationFlag = true;
-    Runnable mealRunnable = new Runnable()
+
+    TextView mealTextView;
+    TextView timerTextView;
+
+    Runnable mealRunnable = new Runnable() // Thread that executes every second. Updates timer and meals per second.
     {
         @Override
         public void run()
         {
-            if(automationFlag)
-            {
-                mealLogic.autoIncreaseMeals();
-                counterTextView.setText(mealLogic.mealsToString());
-            }
+            timeLogic.calculateTime();
+            int[] time = timeLogic.formatTime();
+            timerTextView.setText(String.format("%d:%02d", time[1], time[0]));
+
+            mealLogic.autoIncreaseMeals();
+            mealTextView.setText(mealLogic.mealsToString());
+
 
             if(achLogic.checkClickAchievement(mealLogic.getMeals())){
                 String newAchievement = achLogic.getNewAchievement().getName();
@@ -46,26 +49,7 @@ public class MainActivity extends AppCompatActivity {
             mealHandler.postDelayed(this, 1000); // 1000 here because we want the counter to update every second(1000ms). Upgrades are on a per-second timer.
         }
     };
-    // End meal set up
 
-    // Timer set up
-    TimeLogic timeLogic = new TimeLogic();
-    TextView timerTextView;
-    Handler timerHandler = new Handler();
-    Runnable timerRunnable = new Runnable()
-    {
-        @Override
-        public void run()
-        {
-            timeLogic.calculateTime();
-
-            int[] time = timeLogic.formatTime();
-
-            timerTextView.setText(String.format("%d:%02d", time[1], time[0]));
-            timerHandler.post(this);
-        }
-    };
-    // End timer set up
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -73,12 +57,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Start the timer on app start up
         timerTextView = findViewById(R.id.timerTextView);
-        timerHandler.post(timerRunnable);
+        mealTextView = findViewById(R.id.counterView);
 
-        // Start the thread managing meals/upgrades
-        counterTextView = findViewById(R.id.counterView);
         mealHandler.post(mealRunnable);
     }
 
@@ -94,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         {
             if(resultCode == RESULT_OK)
             {
-                automationFlag = true;
                 mealLogic = (MealLogic)data.getExtras().getSerializable("MEAL_LOGIC");
             }
         }
@@ -111,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
     {
         mealLogic.incrementClicks();
         mealLogic.increaseMeals();
-        counterTextView = (TextView)findViewById(R.id.counterView);
-        counterTextView.setText(mealLogic.mealsToString());
+        mealTextView = (TextView)findViewById(R.id.counterView);
+        mealTextView.setText(mealLogic.mealsToString());
     }
 
     //     OnClick methods for Tab Items (Statistics, Achievements)
@@ -136,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
         Intent upgradesIntent = new Intent(MainActivity.this, UpgradesActivity.class);
 
         upgradesIntent.putExtra("MEAL_LOGIC", mealLogic);
-        automationFlag = false;
 
         MainActivity.this.startActivityForResult(upgradesIntent,1);
     }
