@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import comp3350.overfeed.R;
 import comp3350.overfeed.logic.MealLogic;
-import comp3350.overfeed.domainObjects.Upgrades;
 
 public class UpgradesActivity extends AppCompatActivity
 {

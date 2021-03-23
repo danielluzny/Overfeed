@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         mealTextView.setText(mealLogic.mealsToString());
     }
 
-    //     OnClick methods for Tab Items (Statistics, Achievements)
+    /*
     public void tabStatisticsOnClick(View v)
     {
         Intent statisticsIntent = new Intent(MainActivity.this, StatisticsActivity.class);
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         MainActivity.this.startActivity(statisticsIntent);
     }
-
+    */
     public void upgradeViewOnClick(View v)
     {
         Intent upgradesIntent = new Intent(MainActivity.this, UpgradesActivity.class);
@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivityForResult(upgradesIntent,1);
     }
 
+    /*
     public void tabAchievementsOnClick(View v)
     {
         Bundle extra = new Bundle();
@@ -129,5 +130,5 @@ public class MainActivity extends AppCompatActivity {
         achievementsIntent.putExtras(extra);
         MainActivity.this.startActivityForResult(achievementsIntent, 2);
     }
-
+    */
 }

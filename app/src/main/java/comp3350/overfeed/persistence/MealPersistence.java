@@ -1,59 +1,26 @@
 package comp3350.overfeed.persistence;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-import comp3350.overfeed.domainObjects.Upgrades;
+import comp3350.overfeed.domainObjects.Upgrade;
 
-public class MealPersistence implements Serializable
+public interface MealPersistence
 {
-    private int totalMeals;
-    private int numMeals;
-    private int numClicks;
+    public void addCurrMeals(int numMeals);
 
-    private ArrayList<Upgrades> upgradeList;
+    public void decreaseCurrMeals(int numMeals);
 
-    public MealPersistence()
-    {
-        this.numMeals = 0;
-        this.numClicks = 0;
-        this.totalMeals = 0;
-        upgradeList = new ArrayList<>();
-    }
+    public void updateTotalMeals(int numMeals);
 
-    public void incrementMeals(int numMeals)
-    {
-        this.numMeals = this.numMeals+numMeals;
-        this.totalMeals = this.totalMeals+numMeals;
-    }
+    public void incrementClicks();
 
-    public void decrementMeals(int numMeals) {this.numMeals = this.numMeals-numMeals; }
+    public void addUpgrade(Upgrade up);
 
-    public int getMeals()
-    {
-        return this.numMeals;
-    }
+    public int getCurrMeals();
 
-    public int getTotalMeals(){ return this.totalMeals; }
+    public int getTotalMeals();
 
-    public ArrayList<Upgrades> getUpgradeList()
-    {
-        return this.upgradeList;
-    }
+    public int getClicks();
 
-    public void createUpgrade(Upgrades up)
-    {
-        upgradeList.add(up);
-    }
-
-    public void incrementClicks()
-    {
-        this.numClicks++;
-    }
-
-    public int getClicks()
-    {
-        return this.numClicks;
-    }
-
+    public ArrayList<Upgrade> getUpgradeList();
 }

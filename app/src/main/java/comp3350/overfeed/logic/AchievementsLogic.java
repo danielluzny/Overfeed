@@ -3,54 +3,54 @@ package comp3350.overfeed.logic;
 import java.io.Serializable;
 
 import comp3350.overfeed.domainObjects.Achievement;
-import comp3350.overfeed.persistence.AchievementsPersistence;
+import comp3350.overfeed.persistence.AchievementPersistenceFake;
 
 public class AchievementsLogic implements Serializable {
-    private AchievementsPersistence achievementsPersistence;
+    private AchievementPersistenceFake achievementPersistenceFake;
 
     public AchievementsLogic()
         {
-            achievementsPersistence = new AchievementsPersistence();
+            achievementPersistenceFake = new AchievementPersistenceFake();
         }
 
-    public int getNumAchievementsDone(){ return achievementsPersistence.getNumAchievementsDone();}
+    public int getNumAchievementsDone(){ return achievementPersistenceFake.getNumAchievementsDone();}
 
     public boolean checkClickAchievement(int points){
         boolean ShowSnackbar = false;
         // Check if point is reached
-        if (points >= 10 && !achievementsPersistence.getContent(0).getValue()){
-            achievementsPersistence.getContent(0).setValue();
+        if (points >= 10 && !achievementPersistenceFake.getContent(0).getValue()){
+            achievementPersistenceFake.getContent(0).setValue();
             ShowSnackbar = true;
         }
-        if (points >= 25 && !achievementsPersistence.getContent(1).getValue()){
-            achievementsPersistence.getContent(1).setValue();
+        if (points >= 25 && !achievementPersistenceFake.getContent(1).getValue()){
+            achievementPersistenceFake.getContent(1).setValue();
             ShowSnackbar = true;
         }
-        if (points >= 50 && !achievementsPersistence.getContent(2).getValue()){
-            achievementsPersistence.getContent(2).setValue();
+        if (points >= 50 && !achievementPersistenceFake.getContent(2).getValue()){
+            achievementPersistenceFake.getContent(2).setValue();
             ShowSnackbar = true;
         }
-        if (points >= 100 && !achievementsPersistence.getContent(3).getValue()){
-            achievementsPersistence.getContent(3).setValue();
+        if (points >= 100 && !achievementPersistenceFake.getContent(3).getValue()){
+            achievementPersistenceFake.getContent(3).setValue();
             ShowSnackbar = true;
         }
-        if (points >= 200 && !achievementsPersistence.getContent(4).getValue()){
-            achievementsPersistence.getContent(4).setValue();
+        if (points >= 200 && !achievementPersistenceFake.getContent(4).getValue()){
+            achievementPersistenceFake.getContent(4).setValue();
             ShowSnackbar = true;
         }
-        if (points >= 500 && !achievementsPersistence.getContent(5).getValue()){
-            achievementsPersistence.getContent(5).setValue();
+        if (points >= 500 && !achievementPersistenceFake.getContent(5).getValue()){
+            achievementPersistenceFake.getContent(5).setValue();
             ShowSnackbar = true;
         }
-        if (points >= 1000&& !achievementsPersistence.getContent(6).getValue()){
-            achievementsPersistence.getContent(6).setValue();
+        if (points >= 1000&& !achievementPersistenceFake.getContent(6).getValue()){
+            achievementPersistenceFake.getContent(6).setValue();
             ShowSnackbar = true;
         }
-        if (points >= 2500 && !achievementsPersistence.getContent(7).getValue()){
-            achievementsPersistence.getContent(7).setValue();
+        if (points >= 2500 && !achievementPersistenceFake.getContent(7).getValue()){
+            achievementPersistenceFake.getContent(7).setValue();
             ShowSnackbar = true;
         }
-        achievementsPersistence.updateSize();
+        achievementPersistenceFake.updateSize();
         updateNumDone();
         return ShowSnackbar;
     }
@@ -59,8 +59,8 @@ public class AchievementsLogic implements Serializable {
         // Returns the last achievement from the list which has a value of true
         Achievement thisAch = null;
 
-        if(achievementsPersistence.getNumAchievementsDone()>0){
-            thisAch = achievementsPersistence.getContent(achievementsPersistence.getNumAchievementsDone()-1);
+        if(achievementPersistenceFake.getNumAchievementsDone()>0){
+            thisAch = achievementPersistenceFake.getContent(achievementPersistenceFake.getNumAchievementsDone()-1);
         }
 
         return thisAch;
@@ -68,24 +68,24 @@ public class AchievementsLogic implements Serializable {
 
     public void updateNumDone(){
         int numberDone = 0;
-        for(int i = 0; i< achievementsPersistence.getNumAchievementsTotal(); i++) {
-            if (achievementsPersistence.getContent(i).getValue()) {
+        for(int i = 0; i< achievementPersistenceFake.getNumAchievementsTotal(); i++) {
+            if (achievementPersistenceFake.getContent(i).getValue()) {
                 numberDone++; // Increment numDone for each that returns a getValue of true
             }
         }
-        achievementsPersistence.setNumDone(numberDone);
+        achievementPersistenceFake.setNumDone(numberDone);
     }
 
     public int getPercentageDone(){
         int percentageDone = 0;
-        if(achievementsPersistence.getNumAchievementsDone()>0){
-            percentageDone =  (int)(((float)achievementsPersistence.getNumAchievementsDone()/(float)achievementsPersistence.getNumAchievementsTotal())*100);
+        if(achievementPersistenceFake.getNumAchievementsDone()>0){
+            percentageDone =  (int)(((float) achievementPersistenceFake.getNumAchievementsDone()/(float) achievementPersistenceFake.getNumAchievementsTotal())*100);
         }
         return percentageDone;
     }
 
     public Achievement getContent(int index){
-        return achievementsPersistence.getContent(index);
+        return achievementPersistenceFake.getContent(index);
     }
 
 }

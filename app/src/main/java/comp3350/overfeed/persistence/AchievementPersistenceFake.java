@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 import comp3350.overfeed.domainObjects.Achievement;
 
-public class AchievementsPersistence implements Serializable {
+public class AchievementPersistenceFake implements Serializable {
 
     private int numAchievements;
     private ArrayList<Achievement>  achievementsList;
     private int numDone;
 
-    public AchievementsPersistence()
+    public AchievementPersistenceFake()
     {
         this.achievementsList = new ArrayList<Achievement>();
         this.numAchievements = achievementsList.size();
