@@ -53,4 +53,5 @@ public class Upgrade implements Serializable
     }
 
     public int getCost() { return cost; }
+
 }

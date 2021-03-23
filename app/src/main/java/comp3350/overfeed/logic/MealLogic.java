@@ -1,6 +1,7 @@
 package comp3350.overfeed.logic;
 
 import comp3350.overfeed.domainObjects.Upgrade;
+import comp3350.overfeed.persistence.MealPersistence;
 import comp3350.overfeed.persistence.MealPersistenceFake;
 
 import java.io.Serializable;
@@ -12,14 +13,15 @@ public class MealLogic implements Serializable
     private final int[] UPGRADE_BASE_COSTS = {15, 100, 350, 1500, 7000}; // cost in meals
     private final String[] UPGRADE_IDS = {"Plate", "Worker", "Food Truck", "Restaurant", "Lamb Sauce"};
     private final int[] UPGRADE_BASE_VALUES = {2, 5, 30, 100, 999}; // meals per second
+    private final int[] UPGRADE_COST_MULTIPLIERS = {3, 3, 2, 2, 2};
 
-    private MealPersistenceFake mealPersistenceFake;
+    private MealPersistence mealPersistence;
     private ArrayList<Upgrade> upgradeList;
 
     public MealLogic()
     {
-        mealPersistenceFake = new MealPersistenceFake();
-        upgradeList = mealPersistenceFake.getUpgradeList();
+        mealPersistence = new MealPersistenceFake();
+        upgradeList = mealPersistence.getUpgradeList();
     }
 
     // Handles meal increase when clicking on the Plate
@@ -43,12 +45,15 @@ public class MealLogic implements Serializable
 
         if(found) // increase our meals per click based on the amount upgraded
         {
-            mealPersistenceFake.addCurrMeals(upgradeList.get(pos).getCurrValue());
+            mealPersistence.addCurrMeals(upgradeList.get(pos).getCurrValue());
+            mealPersistence.addTotalMeals(upgradeList.get(pos).getCurrValue());
         }
         else // default to 1 meal/click
         {
-            mealPersistenceFake.addCurrMeals(1);
+            mealPersistence.addCurrMeals(1);
+            mealPersistence.addTotalMeals(1);
         }
+
     }
 
     // Handles meal increase automatically through our upgrades. Called by the Thread in MainActivity every second (since upgrades are in meal-per-second).
@@ -60,7 +65,8 @@ public class MealLogic implements Serializable
             {
                 if(!(upgradeList.get(i).getId().equals("Plate"))) // Process every upgrade except the one related to clicking on the plate
                 {
-                    mealPersistenceFake.addCurrMeals(upgradeList.get(i).getCurrValue());
+                    mealPersistence.addCurrMeals(upgradeList.get(i).getCurrValue());
+                    mealPersistence.addTotalMeals(upgradeList.get(i).getCurrValue());
                 }
             }
         }
@@ -73,13 +79,13 @@ public class MealLogic implements Serializable
 
         up = getUpgrade(id);
 
-        mealPersistenceFake.decreaseCurrMeals(up.getCost());
+        mealPersistence.decreaseCurrMeals(up.getCost());
     }
 
     public String getPlateValueText()
     {
-        String result = "";
-        Upgrade up = null;
+        String result;
+        Upgrade up;
 
         if(checkUpgradeExists(UPGRADE_IDS[0]))
         {
@@ -96,8 +102,8 @@ public class MealLogic implements Serializable
 
     public String getWorkerValueText()
     {
-        String result = "";
-        Upgrade up = null;
+        String result;
+        Upgrade up;
 
         if(checkUpgradeExists(UPGRADE_IDS[1]))
         {
@@ -114,8 +120,8 @@ public class MealLogic implements Serializable
 
     public String getFoodTruckValueText()
     {
-        String result = "";
-        Upgrade up = null;
+        String result;
+        Upgrade up;
 
         if(checkUpgradeExists(UPGRADE_IDS[2]))
         {
@@ -132,8 +138,8 @@ public class MealLogic implements Serializable
 
     public String getRestaurantValueText()
     {
-        String result = "";
-        Upgrade up = null;
+        String result;
+        Upgrade up;
 
         if(checkUpgradeExists(UPGRADE_IDS[3]))
         {
@@ -150,8 +156,8 @@ public class MealLogic implements Serializable
 
     public String getLambSauceValueText()
     {
-        String result = "";
-        Upgrade up = null;
+        String result;
+        Upgrade up;
 
         if(checkUpgradeExists(UPGRADE_IDS[4]))
         {
@@ -168,18 +174,23 @@ public class MealLogic implements Serializable
 
     public void decreaseMeals(int cost)
     {
-        mealPersistenceFake.decreaseCurrMeals(cost);
+        mealPersistence.decreaseCurrMeals(cost);
     }
 
+    public void incrementClicks() { mealPersistence.incrementClicks();}
+
+    // Get meal data and associated toStrings
     public int getMeals()
     {
-        return mealPersistenceFake.getCurrMeals();
+        return mealPersistence.getCurrMeals();
     }
 
     public int getTotalMeals()
     {
-        return mealPersistenceFake.getTotalMeals();
+        return mealPersistence.getTotalMeals();
     }
+
+    public int getClicks() { return mealPersistence.getClicks(); }
 
     public String mealsToString()
     {
@@ -195,11 +206,9 @@ public class MealLogic implements Serializable
     {
         return this.getClicks()+"";
     }
+    ///////
 
-    public void incrementClicks() { mealPersistenceFake.incrementClicks();}
-
-    public int getClicks() { return mealPersistenceFake.getClicks(); }
-
+    // Return parallel arrays
     public int[] getBaseCostArray()
     {
         return this.UPGRADE_BASE_COSTS;
@@ -214,6 +223,9 @@ public class MealLogic implements Serializable
     {
         return this.UPGRADE_IDS;
     }
+
+    public int[] getCostMultArray() { return this.UPGRADE_COST_MULTIPLIERS; }
+    // ////////
 
     public boolean checkUpgradeExists(String id)
     {
@@ -263,11 +275,11 @@ public class MealLogic implements Serializable
         }
     }
 
-    public void createUpgrade(String id, int baseValue, int cost)
+    public void createUpgrade(String id, int baseValue, int cost, int costMultiplier)
     {
-        Upgrade up = new Upgrade(id, baseValue, cost);
+        Upgrade up = new Upgrade(id, baseValue, cost, costMultiplier);
         up.updateCost();
-        mealPersistenceFake.addUpgrade(up);
+        mealPersistence.addUpgrade(up);
     }
 
     public boolean haveEnoughMeals(String id) // Find the upgrade with associated ID and check to see if we have enough meals created to purchase it

@@ -5,7 +5,8 @@ import java.util.ArrayList;
 
 import comp3350.overfeed.domainObjects.Achievement;
 
-public class AchievementPersistenceFake implements Serializable {
+public class AchievementPersistenceFake implements AchievementPersistence, Serializable
+{
 
     private int numAchievements;
     private ArrayList<Achievement>  achievementsList;

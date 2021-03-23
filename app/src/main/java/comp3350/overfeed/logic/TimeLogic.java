@@ -1,27 +1,28 @@
 package comp3350.overfeed.logic;
 
+import comp3350.overfeed.persistence.TimePersistence;
 import comp3350.overfeed.persistence.TimePersistenceFake;
 
 public class TimeLogic
 {
     private long startTime;
-    private TimePersistenceFake timePersistenceFake;
+    private TimePersistence timePersistence;
 
     public TimeLogic()
     {
         startTime = System.currentTimeMillis();
-        timePersistenceFake = new TimePersistenceFake();
+        timePersistence = new TimePersistenceFake();
     }
 
     public void calculateTime() // Time is in seconds
     {
         int seconds = (int) ((System.currentTimeMillis() - startTime) / 1000); // divide by 1000 here because 1000ms == 1s
-        timePersistenceFake.setCurrTime(seconds);
+        timePersistence.setCurrTime(seconds);
     }
 
     public int getCurrTime()
     {
-        return timePersistenceFake.getCurrTime();
+        return timePersistence.getCurrTime();
     }
 
     public int[] formatTime()

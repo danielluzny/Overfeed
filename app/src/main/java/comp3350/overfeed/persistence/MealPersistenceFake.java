@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import comp3350.overfeed.domainObjects.Upgrade;
 
-public class MealPersistenceFake implements Serializable
+public class MealPersistenceFake implements MealPersistence, Serializable
 {
     private int currMeals;
     private int totalMeals;
@@ -31,7 +31,7 @@ public class MealPersistenceFake implements Serializable
         currMeals = currMeals-numMeals;
     }
 
-    public void updateTotalMeals(int numMeals)
+    public void addTotalMeals(int numMeals)
     {
         totalMeals = totalMeals+numMeals;
     }

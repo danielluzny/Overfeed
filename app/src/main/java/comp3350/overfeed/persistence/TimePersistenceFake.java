@@ -1,6 +1,8 @@
 package comp3350.overfeed.persistence;
 
-public class TimePersistenceFake
+import java.io.Serializable;
+
+public class TimePersistenceFake implements TimePersistence, Serializable
 {
     private int currTime;
 

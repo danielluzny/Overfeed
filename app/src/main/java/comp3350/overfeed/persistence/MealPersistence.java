@@ -6,21 +6,21 @@ import comp3350.overfeed.domainObjects.Upgrade;
 
 public interface MealPersistence
 {
-    public void addCurrMeals(int numMeals);
+     void addCurrMeals(int numMeals);
 
-    public void decreaseCurrMeals(int numMeals);
+     void decreaseCurrMeals(int numMeals);
 
-    public void updateTotalMeals(int numMeals);
+     void addTotalMeals(int numMeals);
 
-    public void incrementClicks();
+     void incrementClicks();
 
-    public void addUpgrade(Upgrade up);
+     void addUpgrade(Upgrade up);
 
-    public int getCurrMeals();
+     int getCurrMeals();
 
-    public int getTotalMeals();
+     int getTotalMeals();
 
-    public int getClicks();
+     int getClicks();
 
-    public ArrayList<Upgrade> getUpgradeList();
+     ArrayList<Upgrade> getUpgradeList();
 }
