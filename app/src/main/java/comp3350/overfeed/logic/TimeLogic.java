@@ -1,5 +1,6 @@
 package comp3350.overfeed.logic;
 
+import comp3350.overfeed.application.Services;
 import comp3350.overfeed.persistence.TimePersistence;
 import comp3350.overfeed.persistence.TimePersistenceFake;
 
@@ -11,7 +12,7 @@ public class TimeLogic
     public TimeLogic()
     {
         startTime = System.currentTimeMillis();
-        timePersistence = new TimePersistenceFake();
+        timePersistence = Services.getTimePersistence();
     }
 
     public void calculateTime() // Time is in seconds

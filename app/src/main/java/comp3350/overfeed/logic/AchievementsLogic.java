@@ -2,6 +2,7 @@ package comp3350.overfeed.logic;
 
 import java.io.Serializable;
 
+import comp3350.overfeed.application.Services;
 import comp3350.overfeed.domainObjects.Achievement;
 import comp3350.overfeed.persistence.AchievementPersistence;
 import comp3350.overfeed.persistence.AchievementPersistenceFake;
@@ -11,7 +12,7 @@ public class AchievementsLogic implements Serializable {
 
     public AchievementsLogic()
         {
-            achievementPersistence = new AchievementPersistenceFake();
+            achievementPersistence = Services.getAchievementPersistence();
         }
 
     public int getNumAchievementsDone(){ return achievementPersistence.getNumAchievementsDone();}

@@ -1,5 +1,6 @@
 package comp3350.overfeed.logic;
 
+import comp3350.overfeed.application.Services;
 import comp3350.overfeed.domainObjects.Upgrade;
 import comp3350.overfeed.persistence.MealPersistence;
 import comp3350.overfeed.persistence.MealPersistenceFake;
@@ -20,7 +21,7 @@ public class MealLogic implements Serializable
 
     public MealLogic()
     {
-        mealPersistence = new MealPersistenceFake();
+        mealPersistence = Services.getMealPersistence();
         upgradeList = mealPersistence.getUpgradeList();
     }
 

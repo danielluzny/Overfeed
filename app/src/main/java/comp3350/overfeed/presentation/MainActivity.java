@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         {
             if(resultCode == RESULT_OK)
             {
+
                 mealLogic = (MealLogic)data.getExtras().getSerializable("MEAL_LOGIC");
             }
         }
