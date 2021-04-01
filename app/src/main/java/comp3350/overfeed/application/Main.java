@@ -2,7 +2,7 @@ package comp3350.overfeed.application;
 
 public class Main
 {
-    private static String dbName = "db";
+    private static String dbName = "SC";
 
     public static void main(String[] args)
     {

@@ -32,5 +32,8 @@
     <string name="lambSauceUpgradeDesc">Eviscerate all competition with one drop of this sacred ingredient!</string>
     <string name="save">Save</string>
 
+    <string name="fatalError">Fatal error</string>
+    <string name="warning">Warning</string>
+
 
 </resources>
