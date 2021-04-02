@@ -20,8 +20,8 @@ public class Services
     {
         if(mealPersistence == null)
         {
-            mealPersistence = new MealPersistenceFake();
-            //mealPersistence = new MealPersistenceHSQL();
+            //mealPersistence = new MealPersistenceFake();
+            mealPersistence = new MealPersistenceHSQL(Main.getDBPathName());
         }
 
         return mealPersistence;
@@ -32,7 +32,7 @@ public class Services
         if(timePersistence == null)
         {
             timePersistence = new TimePersistenceFake();
-            //timePersistence = new TimePersistenceHSQL();
+            //timePersistence = new TimePersistenceHSQL(Main.getDBPathName());
         }
 
         return timePersistence;
@@ -43,7 +43,7 @@ public class Services
         if(achievementPersistence == null)
         {
             achievementPersistence = new AchievementPersistenceFake();
-            //achievementPersistence = new AchievementPersistenceHSQL();
+            //achievementPersistence = new AchievementPersistenceHSQL(Main.getDBPathName());
         }
 
         return achievementPersistence;

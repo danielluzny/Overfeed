@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,6 +26,22 @@ import comp3350.overfeed.logic.TimeLogic;
 
 public class MainActivity extends AppCompatActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        copyDatabaseToDevice();
+        mealLogic.initializeDB();
+
+        timerTextView = findViewById(R.id.timerTextView);
+        mealTextView = findViewById(R.id.counterView);
+
+        mealHandler.post(mealRunnable);
+    }
+
+    //MealLogic mealLogic;
     MealLogic mealLogic = new MealLogic();
     AchievementsLogic achLogic = new AchievementsLogic();
     TimeLogic timeLogic = new TimeLogic();
@@ -57,21 +74,6 @@ public class MainActivity extends AppCompatActivity {
             mealHandler.postDelayed(this, 1000); // 1000 here because we want the counter to update every second(1000ms). Upgrades are on a per-second timer.
         }
     };
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        copyDatabaseToDevice();
-
-        timerTextView = findViewById(R.id.timerTextView);
-        mealTextView = findViewById(R.id.counterView);
-
-        mealHandler.post(mealRunnable);
-    }
 
     @Override
     protected void onDestroy() {

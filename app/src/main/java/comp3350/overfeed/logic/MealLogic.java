@@ -21,6 +21,11 @@ public class MealLogic implements Serializable
 
     public MealLogic()
     {
+
+    }
+
+    public void initializeDB()
+    {
         mealPersistence = Services.getMealPersistence();
         upgradeList = mealPersistence.getUpgradeList();
     }
