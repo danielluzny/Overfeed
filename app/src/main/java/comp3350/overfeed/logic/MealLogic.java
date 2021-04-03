@@ -3,7 +3,6 @@ package comp3350.overfeed.logic;
 import comp3350.overfeed.application.Services;
 import comp3350.overfeed.domainObjects.Upgrade;
 import comp3350.overfeed.persistence.MealPersistence;
-import comp3350.overfeed.persistence.MealPersistenceFake;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ public class MealLogic implements Serializable
 {
     // Parallel arrays with regards to the upgrades and their attributes
     private final int[] UPGRADE_BASE_COSTS = {15, 100, 350, 1500, 7000}; // cost in meals
-    private final String[] UPGRADE_IDS = {"Plate", "Worker", "Food Truck", "Restaurant", "Lamb Sauce"};
+    private final String[] UPGRADE_IDS = {"plate", "worker", "foodtruck", "restaurant", "lambsauce"};
     private final int[] UPGRADE_BASE_VALUES = {2, 5, 30, 100, 999}; // meals per second
     private final int[] UPGRADE_COST_MULTIPLIERS = {3, 3, 2, 2, 2};
 
@@ -24,7 +23,7 @@ public class MealLogic implements Serializable
 
     }
 
-    public void initializeDB()
+    public void initializeData()
     {
         mealPersistence = Services.getMealPersistence();
         upgradeList = mealPersistence.getUpgradeList();
@@ -40,7 +39,7 @@ public class MealLogic implements Serializable
         {
             for(int i=0; i<upgradeList.size() && !found; i++)
             {
-                if(upgradeList.get(i).getId().equals("Plate")) // Look for an upgrade related to clicking on the plate (id=Plate)
+                if(upgradeList.get(i).getId().equals("plate")) // Look for an upgrade related to clicking on the plate (id=Plate)
                 {
 
                     found = true;
@@ -69,7 +68,7 @@ public class MealLogic implements Serializable
         {
             for(int i=0; i<upgradeList.size(); i++)
             {
-                if(!(upgradeList.get(i).getId().equals("Plate"))) // Process every upgrade except the one related to clicking on the plate
+                if(!(upgradeList.get(i).getId().equals("plate"))) // Process every upgrade except the one related to clicking on the plate
                 {
                     mealPersistence.addCurrMeals(upgradeList.get(i).getCurrValue());
                     mealPersistence.addTotalMeals(upgradeList.get(i).getCurrValue());

@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 import comp3350.overfeed.domainObjects.Achievement;
 
-public class AchievementPersistenceHSQL implements AchievementPersistence, Serializable
+public class AchievementData implements AchievementPersistence, Serializable
 {
     private int numAchievements;
     private ArrayList<Achievement>  achievementsList;
     private int numDone;
 
-    public AchievementPersistenceHSQL()
+    public AchievementData()
     {
         this.achievementsList = new ArrayList<Achievement>();
         this.numAchievements = achievementsList.size();
@@ -69,6 +69,8 @@ public class AchievementPersistenceHSQL implements AchievementPersistence, Seria
     public void setNumDone(int numDone) {
         this.numDone = numDone;
     }
+
+    public void setNumAchiev(int numAchiev) { this.numAchievements = numAchiev; }
 
     public Achievement getContent(int n){ return this.achievementsList.get(n);}
 }

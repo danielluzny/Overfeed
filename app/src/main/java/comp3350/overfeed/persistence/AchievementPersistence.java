@@ -18,5 +18,7 @@ public interface AchievementPersistence
 
      void setNumDone(int numDone);
 
+     void setNumAchiev(int numAchiev);
+
      Achievement getContent(int n);
 }

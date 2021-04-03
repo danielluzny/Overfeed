@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -24,6 +23,8 @@ import comp3350.overfeed.logic.AchievementsLogic;
 import comp3350.overfeed.logic.MealLogic;
 import comp3350.overfeed.logic.TimeLogic;
 
+import comp3350.overfeed.application.Services;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -33,7 +34,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         copyDatabaseToDevice();
-        mealLogic.initializeDB();
+        mealLogic.initializeData();
+
+        Services.makeSaver();
+        Services.makeLoader();
+
+        Services.loadHSQL.loadAll(); // change this to a load logic class later
 
         timerTextView = findViewById(R.id.timerTextView);
         mealTextView = findViewById(R.id.counterView);
@@ -41,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         mealHandler.post(mealRunnable);
     }
 
-    //MealLogic mealLogic;
     MealLogic mealLogic = new MealLogic();
     AchievementsLogic achLogic = new AchievementsLogic();
     TimeLogic timeLogic = new TimeLogic();
@@ -57,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run()
         {
-            timeLogic.calculateTime();
+            timeLogic.incrementTime();
             int[] time = timeLogic.formatTime();
             timerTextView.setText(String.format("%d:%02d", time[1], time[0]));
 
@@ -121,6 +126,11 @@ public class MainActivity extends AppCompatActivity {
         statisticsIntent.putExtras(extras);
 
         MainActivity.this.startActivity(statisticsIntent);
+    }
+
+    public void saveViewOnclick(View v)
+    {
+        Services.saveHSQL.saveAll();
     }
 
     public void upgradeViewOnClick(View v)
