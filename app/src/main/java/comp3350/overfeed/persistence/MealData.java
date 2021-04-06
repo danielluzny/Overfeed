@@ -11,7 +11,7 @@ public class MealData implements MealPersistence, Serializable
     private int totalMeals;
     private int numClicks;
 
-    private ArrayList<Upgrade> upgradeList;
+    public ArrayList<Upgrade> upgradeList;
 
     public MealData()
     {

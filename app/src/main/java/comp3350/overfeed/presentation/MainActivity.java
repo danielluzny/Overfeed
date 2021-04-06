@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,8 +23,8 @@ import comp3350.overfeed.application.Main;
 import comp3350.overfeed.logic.AchievementsLogic;
 import comp3350.overfeed.logic.MealLogic;
 import comp3350.overfeed.logic.TimeLogic;
-
-import comp3350.overfeed.application.Services;
+import comp3350.overfeed.logic.SaveLogic;
+import comp3350.overfeed.logic.LoadLogic;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,12 +35,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         copyDatabaseToDevice();
+
         mealLogic.initializeData();
+        timeLogic.initializeData();
+        achLogic.initializeData();
 
-        Services.makeSaver();
-        Services.makeLoader();
+        saveLogic.initializeSaver(mealLogic, timeLogic, achLogic);
+        loadLogic.initializeLoader(mealLogic, timeLogic, achLogic);
 
-        Services.loadHSQL.loadAll(); // change this to a load logic class later
+        loadLogic.loadAll();
 
         timerTextView = findViewById(R.id.timerTextView);
         mealTextView = findViewById(R.id.counterView);
@@ -47,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         mealHandler.post(mealRunnable);
     }
 
+    SaveLogic saveLogic = new SaveLogic();
+    LoadLogic loadLogic = new LoadLogic();
     MealLogic mealLogic = new MealLogic();
     AchievementsLogic achLogic = new AchievementsLogic();
     TimeLogic timeLogic = new TimeLogic();
@@ -57,26 +63,31 @@ public class MainActivity extends AppCompatActivity {
     TextView mealTextView;
     TextView timerTextView;
 
+    boolean pause = false; // Variable used to simplify functionality by stopping timer/upgrades when on other pages.
+
     Runnable mealRunnable = new Runnable() // Thread that executes every second. Updates timer and meals per second.
     {
         @Override
         public void run()
         {
-            timeLogic.incrementTime();
-            int[] time = timeLogic.formatTime();
-            timerTextView.setText(String.format("%d:%02d", time[1], time[0]));
+            if(!pause)
+            {
+                timeLogic.incrementTime();
+                int[] time = timeLogic.formatTime();
+                timerTextView.setText(String.format("%d:%02d", time[1], time[0]));
 
-            mealLogic.autoIncreaseMeals();
-            mealTextView.setText(mealLogic.mealsToString());
+                mealLogic.autoIncreaseMeals();
+                mealTextView.setText(mealLogic.mealsToString());
 
-
-            if(achLogic.checkClickAchievement(mealLogic.getMeals())){
-                String newAchievement = achLogic.getNewAchievement().getName();
-                Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Achievement Unlocked! "+ newAchievement, Snackbar.LENGTH_SHORT);
-                mySnackbar.show();
+                if (achLogic.checkClickAchievement(mealLogic.getMeals())) {
+                    String newAchievement = achLogic.getNewAchievement().getName();
+                    Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Achievement Unlocked! " + newAchievement, Snackbar.LENGTH_SHORT);
+                    mySnackbar.show();
+                }
             }
+            saveLogic.initializeSaver(mealLogic, timeLogic, achLogic); // This line is here strictly because of ArrayList objects being updated asynchronously in android studio, despite us already initializing in onCreate().
 
-            mealHandler.postDelayed(this, 1000); // 1000 here because we want the counter to update every second(1000ms). Upgrades are on a per-second timer.
+            mealHandler.postDelayed(this, 1000);
         }
     };
 
@@ -90,18 +101,19 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode,resultCode,data);
         if(requestCode==1)
         {
-            if(resultCode == RESULT_OK)
-            {
+            mealLogic = (MealLogic)data.getExtras().getSerializable("MEAL_LOGIC");
+            saveLogic.initializeSaver(mealLogic, timeLogic, achLogic);
+            pause = false;
 
-                mealLogic = (MealLogic)data.getExtras().getSerializable("MEAL_LOGIC");
-            }
         }
         else if(requestCode==2)
         {
-            if(resultCode == RESULT_OK)
-            {
-                achLogic = (AchievementsLogic)data.getExtras().getSerializable("ACH_LOGIC");
-            }
+            achLogic = (AchievementsLogic)data.getExtras().getSerializable("ACH_LOGIC");
+            pause = false;
+        }
+        else if(requestCode==3)
+        {
+            pause = false;
         }
     }
 
@@ -125,12 +137,14 @@ public class MainActivity extends AppCompatActivity {
         extras.putString("NUMBER_MEALS", mealLogic.totalMealsToString());
         statisticsIntent.putExtras(extras);
 
-        MainActivity.this.startActivity(statisticsIntent);
+        pause = true;
+
+        MainActivity.this.startActivityForResult(statisticsIntent,3);
     }
 
     public void saveViewOnclick(View v)
     {
-        Services.saveHSQL.saveAll();
+        saveLogic.saveAll();
     }
 
     public void upgradeViewOnClick(View v)
@@ -138,6 +152,8 @@ public class MainActivity extends AppCompatActivity {
         Intent upgradesIntent = new Intent(MainActivity.this, UpgradesActivity.class);
 
         upgradesIntent.putExtra("MEAL_LOGIC", mealLogic);
+
+        pause = true;
 
         MainActivity.this.startActivityForResult(upgradesIntent,1);
     }
@@ -149,6 +165,9 @@ public class MainActivity extends AppCompatActivity {
         achievementsIntent.putExtra("ACH_LOGIC", achLogic);
         extra.putInt("NUM_CLICKS", mealLogic.getClicks());
         achievementsIntent.putExtras(extra);
+
+        pause = true;
+
         MainActivity.this.startActivityForResult(achievementsIntent, 2);
     }
 

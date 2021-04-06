@@ -27,13 +27,14 @@ public class SaveHSQL implements Save
 
     public void saveAll()
     {
+        saveUpgrades();
         saveCurrMeals();
         saveTotalMeals();
         saveNumClicks();
-        // saveUpgrades();
         saveTime();
         saveNumAchiev();
         saveAchievDone();
+
         // saveAchiev();
     }
 
@@ -88,6 +89,7 @@ public class SaveHSQL implements Save
     public void saveUpgrades()
     {
         ArrayList<Upgrade> upgrades = mealPers.getUpgradeList();
+
         if(upgrades.size()>0)
         {
             try (final Connection c = connection())
@@ -95,15 +97,17 @@ public class SaveHSQL implements Save
                 int i = upgrades.size();
                 while(i>0)
                 {
+                    int j = i-1;
                     final PreparedStatement st = c.prepareStatement("UPDATE upgrades SET costmult = ?, baseval = ?, upnum = ?, currval = ?, cost = ? WHERE upgradeid = ?");
-                    st.setInt(1, upgrades.get(i).getCostMultiplier());
-                    st.setInt(2, upgrades.get(i).getBaseValue());
-                    st.setInt(3, upgrades.get(i).getUpgradeNum());
-                    st.setInt(4, upgrades.get(i).getCurrValue());
-                    st.setInt(5, upgrades.get(i).getCost());
-                    st.setString(6, upgrades.get(i).getId());
+                    st.setInt(1, upgrades.get(j).getCostMultiplier());
+                    st.setInt(2, upgrades.get(j).getBaseValue());
+                    st.setInt(3, upgrades.get(j).getUpgradeNum());
+                    st.setInt(4, upgrades.get(j).getCurrValue());
+                    st.setInt(5, upgrades.get(j).getCost());
+                    st.setString(6, upgrades.get(j).getId());
                     st.executeUpdate();
-                    i++;
+                    st.close();
+                    i--;
                 }
             }
             catch (SQLException e)

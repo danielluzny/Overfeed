@@ -1,18 +1,15 @@
 package comp3350.overfeed.logic;
 
-import comp3350.overfeed.application.Services;
+import comp3350.overfeed.persistence.TimeData;
 import comp3350.overfeed.persistence.TimePersistence;
 
 public class TimeLogic
 {
-    private long startTime;
     private TimePersistence timePersistence;
 
-    public TimeLogic()
-    {
-        startTime = System.currentTimeMillis();
-        timePersistence = Services.getTimePersistence();
-    }
+    public TimeLogic() { }
+
+    public void initializeData() { timePersistence = new TimeData(); }
 
     public void incrementTime()
     {
@@ -23,6 +20,8 @@ public class TimeLogic
     {
         return timePersistence.getCurrTime();
     }
+
+    public TimePersistence getPersistence() { return this.timePersistence; }
 
     public int[] formatTime()
     {

@@ -23,6 +23,8 @@ public class Upgrade implements Serializable
         this.costMultiplier=costMultiplier;
     }
 
+    public Upgrade(String id) {this.id = id; }
+
     public void addUpgrade() // Purchasing an upgrade will call this method
     {
         upgradeNum++;

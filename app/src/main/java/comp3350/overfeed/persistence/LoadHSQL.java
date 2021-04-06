@@ -31,10 +31,11 @@ public class LoadHSQL implements Load
        loadCurrMeals();
        loadTotalMeals();
        loadNumClicks();
-     //  loadUpgrades();
+       loadUpgrades();
        loadTime();
        loadNumAchiev();
        loadAchievDone();
+
      //  loadAchiev();
     }
 
@@ -94,7 +95,34 @@ public class LoadHSQL implements Load
 
     public void loadUpgrades()
     {
+        ArrayList<Upgrade> upgrades = mealPers.getUpgradeList();
+        Upgrade up;
 
+        try (final Connection c = connection())
+        {
+            final PreparedStatement st = c.prepareStatement("SELECT * FROM upgrades");
+            final ResultSet rs = st.executeQuery();
+
+            while(rs.next())
+            {
+                int upgradeNum = rs.getInt(4);
+                if((upgradeNum)>0)
+                {
+                    up = new Upgrade(rs.getString(1));
+                    up.setCostMultiplier(rs.getInt(2));
+                    up.setBaseValue(rs.getInt(3));
+                    up.setUpgradeNum(rs.getInt(4));
+                    up.setCurrValue(rs.getInt(5));
+                    up.setCost(rs.getInt(6));
+
+                    upgrades.add(up);
+                }
+            }
+        }
+        catch(SQLException e)
+        {
+            throw new PersistenceException(e);
+        }
     }
 
     public void loadTime()
