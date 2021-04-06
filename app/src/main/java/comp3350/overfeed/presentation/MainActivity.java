@@ -39,8 +39,15 @@ public class MainActivity extends AppCompatActivity {
         mealTextView = findViewById(R.id.counterView);
 
         mealHandler.post(mealRunnable);
+
+        playMusic();
     }
 
+    //calls and starts music
+    private void playMusic() {
+        Intent intent = new Intent(MainActivity.this, BackgroundMusic.class);
+        startService(intent);
+    }
     //MealLogic mealLogic;
     MealLogic mealLogic = new MealLogic();
     AchievementsLogic achLogic = new AchievementsLogic();
