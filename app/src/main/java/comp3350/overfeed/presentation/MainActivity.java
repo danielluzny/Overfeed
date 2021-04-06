@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         mealHandler.post(mealRunnable);
 
-        //playMusic();
+        playMusic();
     }
 
     //calls and starts music
