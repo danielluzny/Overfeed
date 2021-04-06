@@ -5,33 +5,17 @@ import java.util.ArrayList;
 
 import comp3350.overfeed.domainObjects.Achievement;
 
-public class AchievementPersistenceHSQL implements AchievementPersistence, Serializable
-{
-    private int numAchievements;
-    private ArrayList<Achievement>  achievementsList;
-    private int numDone;
+public class ClickAchievementBuilder implements AchievementBuilder, Serializable {
 
-    public AchievementPersistenceHSQL()
-    {
+    private ArrayList<Achievement> achievementsList;
+
+    public ClickAchievementBuilder(){
         this.achievementsList = new ArrayList<Achievement>();
-        this.numAchievements = achievementsList.size();
-        this.numDone = 0;
-        this.initializeList();
     }
 
-    public int getNumAchievementsTotal()
-    {
-        return this.numAchievements;
-    }
-
-    public int getNumAchievementsDone()
-    {
-        return this.numDone;
-    }
-
-    public void initializeList(){
-        // Create initial list of achievements
-
+    @Override
+    public void buildList() {
+        // Create initial list of achievements related to the number of clicks
         Achievement noviceAchieve = new Achievement("Novice Cook!", "Make food 10 times.");
         this.achievementsList.add(noviceAchieve);
 
@@ -56,19 +40,13 @@ public class AchievementPersistenceHSQL implements AchievementPersistence, Seria
         Achievement masterAchieve = new Achievement("A true Master chef!", "Make food 2500 times.");
         this.achievementsList.add(masterAchieve);
 
-        this.updateSize();
-        this.setNumDone(0);
+//            this.updateSize();
+//            this.setNumDone(0);
+
     }
 
-    public ArrayList<Achievement> getList() { return this.achievementsList; }
-
-    public void updateSize(){
-        this.numAchievements = this.achievementsList.size();
+    @Override
+    public ArrayList<Achievement> getAchievementsList() {
+        return this.achievementsList;
     }
-
-    public void setNumDone(int numDone) {
-        this.numDone = numDone;
-    }
-
-    public Achievement getContent(int n){ return this.achievementsList.get(n);}
 }

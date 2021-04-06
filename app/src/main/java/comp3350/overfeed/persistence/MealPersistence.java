@@ -22,5 +22,11 @@ public interface MealPersistence
 
      int getClicks();
 
+     void setCurrMeals(int currMeals);
+
+     void setTotalMeals(int totalMeals);
+
+     void setNumClicks(int numClicks);
+
      ArrayList<Upgrade> getUpgradeList();
 }

@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class Upgrade implements Serializable
 {
-    final private int costMultiplier; // Determines the cost of the next upgrade purchase
-    final private int baseValue; // Every upgrade has a base value associated with it to determine how much one of that upgrade is worth.
+    private int costMultiplier; // Determines the cost of the next upgrade purchase
+    private int baseValue; // Every upgrade has a base value associated with it to determine how much one of that upgrade is worth.
 
     final private String id; // Every upgrade has an identification based on the upgrade name (for example: the Plate upgrade would have id="Plate")
 
@@ -22,6 +22,8 @@ public class Upgrade implements Serializable
         this.cost=cost;
         this.costMultiplier=costMultiplier;
     }
+
+    public Upgrade(String id) {this.id = id; }
 
     public void addUpgrade() // Purchasing an upgrade will call this method
     {
@@ -40,6 +42,7 @@ public class Upgrade implements Serializable
         cost = cost*costMultiplier;
     }
 
+
     public String getId()
     {
         return id;
@@ -54,4 +57,18 @@ public class Upgrade implements Serializable
 
     public int getCost() { return cost; }
 
+    public int getCostMultiplier() { return costMultiplier; }
+
+    public int getBaseValue() { return baseValue; }
+
+
+    public void setUpgradeNum(int upgradeNum) { this.upgradeNum = upgradeNum; }
+
+    public void setCurrValue(int currValue) { this.currValue = currValue; }
+
+    public void setCost(int cost) { this.cost = cost; }
+
+    public void setCostMultiplier(int costMultiplier) { this.costMultiplier = costMultiplier; }
+
+    public void setBaseValue(int baseValue) { this.baseValue = baseValue; }
 }

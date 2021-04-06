@@ -108,6 +108,7 @@
             android:layout_width="150dp"
             android:layout_height="89dp"
             android:fontFamily="casual"
+            android:onClick="saveViewOnclick"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

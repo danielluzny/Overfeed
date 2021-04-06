@@ -2,11 +2,11 @@ package comp3350.overfeed.persistence;
 
 import java.io.Serializable;
 
-public class TimePersistenceHSQL implements TimePersistence, Serializable
+public class TimeData implements TimePersistence, Serializable
 {
     private int currTime;
 
-    public TimePersistenceHSQL()
+    public TimeData()
     {
         this.currTime = 0;
     }

@@ -10,13 +10,13 @@ public interface AchievementPersistence
 
      int getNumAchievementsDone();
 
-     void initializeList();
-
      ArrayList<Achievement> getList();
 
      void updateSize();
 
      void setNumDone(int numDone);
+
+     void setNumAchiev(int numAchiev);
 
      Achievement getContent(int n);
 }

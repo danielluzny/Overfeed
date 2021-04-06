@@ -5,15 +5,15 @@ import java.util.ArrayList;
 
 import comp3350.overfeed.domainObjects.Upgrade;
 
-public class MealPersistenceFake implements MealPersistence, Serializable
+public class MealData implements MealPersistence, Serializable
 {
     private int currMeals;
     private int totalMeals;
     private int numClicks;
 
-    private ArrayList<Upgrade> upgradeList;
+    public ArrayList<Upgrade> upgradeList;
 
-    public MealPersistenceFake()
+    public MealData()
     {
         currMeals = 0;
         numClicks = 0;
@@ -38,7 +38,7 @@ public class MealPersistenceFake implements MealPersistence, Serializable
 
     public void incrementClicks()
     {
-        this.numClicks++;
+        numClicks++;
     }
 
     public void addUpgrade(Upgrade up)
@@ -51,16 +51,33 @@ public class MealPersistenceFake implements MealPersistence, Serializable
         return this.currMeals;
     }
 
-    public int getTotalMeals(){ return this.totalMeals; }
+    public int getTotalMeals()
+    {
+        return this.totalMeals;
+    }
 
     public int getClicks()
     {
         return this.numClicks;
     }
 
+    public void setCurrMeals(int currMeals)
+    {
+        this.currMeals = currMeals;
+    }
+
+    public void setTotalMeals(int totalMeals)
+    {
+        this.totalMeals = totalMeals;
+    }
+
+    public void setNumClicks(int numClicks)
+    {
+        this.numClicks = numClicks;
+    }
+
     public ArrayList<Upgrade> getUpgradeList()
     {
         return this.upgradeList;
     }
-
 }

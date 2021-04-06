@@ -2,18 +2,16 @@ package comp3350.overfeed.logic;
 
 import java.io.Serializable;
 
-import comp3350.overfeed.application.Services;
 import comp3350.overfeed.domainObjects.Achievement;
+import comp3350.overfeed.persistence.AchievementData;
 import comp3350.overfeed.persistence.AchievementPersistence;
-import comp3350.overfeed.persistence.AchievementPersistenceFake;
 
 public class AchievementsLogic implements Serializable {
     public AchievementPersistence achievementPersistence;
 
-    public AchievementsLogic()
-        {
-            achievementPersistence = Services.getAchievementPersistence();
-        }
+    public AchievementsLogic() { }
+
+    public void initializeData(){ achievementPersistence = new AchievementData(); }
 
     public int getNumAchievementsDone(){ return achievementPersistence.getNumAchievementsDone();}
 
@@ -89,5 +87,7 @@ public class AchievementsLogic implements Serializable {
     public Achievement getContent(int index){
         return achievementPersistence.getContent(index);
     }
+
+    public AchievementPersistence getPersistence() { return this.achievementPersistence; }
 
 }
