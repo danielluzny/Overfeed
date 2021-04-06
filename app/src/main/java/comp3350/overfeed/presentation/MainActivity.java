@@ -20,9 +20,7 @@ import java.io.InputStreamReader;
 
 import comp3350.overfeed.R;
 import comp3350.overfeed.application.Main;
-import comp3350.overfeed.logic.AchievementsLogic;
-import comp3350.overfeed.logic.MealLogic;
-import comp3350.overfeed.logic.TimeLogic;
+import comp3350.overfeed.logic.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         mealHandler.post(mealRunnable);
 
-        playMusic();
+        //playMusic();
     }
 
     //calls and starts music
