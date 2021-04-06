@@ -10,13 +10,17 @@ public class AchievementData implements AchievementPersistence, Serializable
     private int numAchievements;
     private ArrayList<Achievement>  achievementsList;
     private int numDone;
+    AchievementBuilder clickAchBuilder;
+    AchievementsDirector director;
 
     public AchievementData()
     {
-        this.achievementsList = new ArrayList<Achievement>();
+        clickAchBuilder = new ClickAchievementBuilder();
+        director = new AchievementsDirector(clickAchBuilder);
+        director.constructAchievementsList();
+        this.achievementsList = director.getAchievementsList();
         this.numAchievements = achievementsList.size();
         this.numDone = 0;
-        this.initializeList();
     }
 
     public int getNumAchievementsTotal()
@@ -27,37 +31,6 @@ public class AchievementData implements AchievementPersistence, Serializable
     public int getNumAchievementsDone()
     {
         return this.numDone;
-    }
-
-    public void initializeList(){
-        // Create initial list of achievements
-
-        Achievement noviceAchieve = new Achievement("Novice Cook!", "Make food 10 times.");
-        this.achievementsList.add(noviceAchieve);
-
-        Achievement studentAchieve = new Achievement("A+ Cooking Student!", "Make food 25 times.");
-        this.achievementsList.add(studentAchieve);
-
-        Achievement whizAchieve = new Achievement("You are a whiz!", "Make food 50 times.");
-        this.achievementsList.add(whizAchieve);
-
-        Achievement gordonAchieve = new Achievement("Making Gordon Ramsay proud!", "Make food 100 times.");
-        this.achievementsList.add(gordonAchieve);
-
-        Achievement apprAchieve = new Achievement("Apprentice Chef!", "Make food 200 times.");
-        this.achievementsList.add(apprAchieve);
-
-        Achievement sousAchieve = new Achievement("Sous Chef!", "Make food 500 times.");
-        this.achievementsList.add(sousAchieve);
-
-        Achievement cuisineAchieve = new Achievement("A Chef de cuisine!", "Make food 1000 times.");
-        this.achievementsList.add(cuisineAchieve);
-
-        Achievement masterAchieve = new Achievement("A true Master chef!", "Make food 2500 times.");
-        this.achievementsList.add(masterAchieve);
-
-        this.updateSize();
-        this.setNumDone(0);
     }
 
     public ArrayList<Achievement> getList() { return this.achievementsList; }
@@ -74,3 +47,4 @@ public class AchievementData implements AchievementPersistence, Serializable
 
     public Achievement getContent(int n){ return this.achievementsList.get(n);}
 }
+

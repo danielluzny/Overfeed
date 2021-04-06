@@ -10,8 +10,6 @@ public interface AchievementPersistence
 
      int getNumAchievementsDone();
 
-     void initializeList();
-
      ArrayList<Achievement> getList();
 
      void updateSize();
