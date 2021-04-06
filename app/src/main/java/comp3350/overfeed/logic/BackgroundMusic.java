@@ -30,7 +30,7 @@ public class BackgroundMusic extends Service
 
     public int onStartCommand(Intent intent, int flags, int startId)
     {
-        mediaPlayer.prepareAsync();
+        mediaPlayer.start();
         return startId;
     }
 
