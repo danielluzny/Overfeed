@@ -1,10 +1,11 @@
 package comp3350.overfeed.persistence;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import comp3350.overfeed.domainObjects.Achievement;
 
-public class ClickAchievementBuilder implements AchievementBuilder {
+public class ClickAchievementBuilder implements AchievementBuilder, Serializable {
 
     private ArrayList<Achievement> achievementsList;
 
