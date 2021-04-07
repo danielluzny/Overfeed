@@ -34,6 +34,7 @@
 
     <string name="fatalError">Fatal error</string>
     <string name="warning">Warning</string>
+    <string name="clickableplate">clickablePlate</string>
 
 
 </resources>

@@ -28,22 +28,6 @@
             app:layout_constraintVertical_bias="0.05" />
 
 
-        <Button
-            android:id="@+id/plateView"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="292dp"
-            android:layout_height="223dp"
-            android:backgroundTint="#AC8787"
-            android:fontFamily="casual"
-            android:onClick="plateViewOnClick"
-            android:text="@string/plate"
-            android:textSize="36sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.341" />
-
         <TextView
             android:id="@+id/counterView"
             android:layout_width="180dp"
@@ -53,13 +37,11 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="40sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/plateView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/timerTextView"
             app:layout_constraintHorizontal_bias="0.689"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.159" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/buttonStatistics"
@@ -116,6 +98,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.876" />
+
+        <ImageButton
+            android:id="@+id/imageButtonPlate"
+            android:layout_width="338dp"
+            android:layout_height="331dp"
+            android:background="@null"
+            android:contentDescription="@string/clickableplate"
+            android:onClick="plateViewOnClick"
+            android:scaleType="fitCenter"
+            android:src="@drawable/selector_plate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.27" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
