@@ -107,7 +107,7 @@
             android:contentDescription="@string/clickableplate"
             android:onClick="plateViewOnClick"
             android:scaleType="fitCenter"
-            android:src="@drawable/selector_plate"
+            android:src="@drawable/selector_main_plate"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.493"
