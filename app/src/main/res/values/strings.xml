@@ -40,6 +40,8 @@
     <string name="food_truckCAPS">FOOD TRUCK</string>
     <string name="restaurantCAPS">RESTAURANT</string>
     <string name="lamb_sauceCAPS">LAMB SAUCE</string>
+    <string name="tablebgimage">TableBGImage</string>
+    <string name="tableimage">tableImage</string>
 
 
 </resources>
