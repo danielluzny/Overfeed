@@ -4,13 +4,13 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import comp3350.overfeed.domainObjects.Upgrades;
+import comp3350.overfeed.domainObjects.Upgrade;
 import comp3350.overfeed.logic.MealLogic;
 
 public class MealLogicTest {
 
     private MealLogic mealLogic;
-    private Upgrades up;
+    private Upgrade up;
 
     @Before
     public void setUp()
@@ -66,27 +66,27 @@ public class MealLogicTest {
                 mealLogic.getLambSauceValueText(), "");
 
 
-        mealLogic.createUpgrade("Plate", 2, 15);
+        mealLogic.createUpgrade("Plate", 2, 15, 3);
         assertTrue("Should have plate upgrade", mealLogic.checkUpgradeExists("Plate"));
         assertNotEquals("The PlateValueText should not be empty ",
                 mealLogic.getPlateValueText(), "");
 
-        mealLogic.createUpgrade("Worker", 5, 100);
+        mealLogic.createUpgrade("Worker", 5, 100,3);
         assertTrue("Should have worker upgrade", mealLogic.checkUpgradeExists("Worker"));
         assertNotEquals("The WorkerValueText should not be empty ",
                 mealLogic.getWorkerValueText(), "");
 
-        mealLogic.createUpgrade("Food Truck", 30, 350);
+        mealLogic.createUpgrade("Food Truck", 30, 350, 2);
         assertTrue("Should have food truck upgrade", mealLogic.checkUpgradeExists("Food Truck"));
         assertNotEquals("The FoodTruckValueText should not be empty ",
                 mealLogic.getFoodTruckValueText(), "");
 
-        mealLogic.createUpgrade("Restaurant", 100, 1500);
+        mealLogic.createUpgrade("Restaurant", 100, 1500, 2);
         assertTrue("Should have restaurant upgrade", mealLogic.checkUpgradeExists("Restaurant"));
         assertNotEquals("The RestaurantValueText should not be empty ",
                 mealLogic.getRestaurantValueText(), "");
 
-        mealLogic.createUpgrade("Lamb Sauce", 999, 7000);
+        mealLogic.createUpgrade("Lamb Sauce", 999, 7000, 2);
         assertTrue("Should have lamb sauce upgrade", mealLogic.checkUpgradeExists("Lamb Sauce"));
         assertNotEquals("The LambSauceValueText should not be empty ",
                 mealLogic.getLambSauceValueText(), "");
@@ -149,7 +149,7 @@ public class MealLogicTest {
                 mealLogic.haveEnoughMeals(15));
 
         //create the worker upgrade
-        mealLogic.createUpgrade("Worker", 5, 10);
+        mealLogic.createUpgrade("Worker", 5, 10,3);
         //add enough meals to purchase one
         for(int i = 0; i < 15; i++){ mealLogic.increaseMeals(); }
         meals = mealLogic.getMeals();
@@ -181,7 +181,7 @@ public class MealLogicTest {
                 amtBefore < up.getUpgradeNum());
 
         //test the increasemeals with a plate
-        mealLogic.createUpgrade("Plate", 2, 15);
+        mealLogic.createUpgrade("Plate", 2, 15, 3);
 
         meals = mealLogic.getMeals();
         mealLogic.increaseMeals();

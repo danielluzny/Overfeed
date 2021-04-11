@@ -1,13 +1,7 @@
 package comp3350.overfeed.Tests.DatabaseTests;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import comp3350.overfeed.persistence.Database;
-import comp3350.overfeed.persistence.IDatabase;
 
 public class IDatabaseTest {
 
