@@ -3,6 +3,7 @@ package comp3350.overfeed.presentation;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.widget.Toast;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -149,6 +150,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void saveViewOnclick(View v)
     {
+        Context context = getApplicationContext();
+        Toast toast = Toast.makeText(context, "Saved! Keep on clicking!", Toast.LENGTH_SHORT);
+        toast.show();
         saveLogic.saveAll();
     }
 
