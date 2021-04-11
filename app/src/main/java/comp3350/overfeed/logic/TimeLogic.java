@@ -23,14 +23,17 @@ public class TimeLogic
 
     public TimePersistence getPersistence() { return this.timePersistence; }
 
-    public int[] formatTime()
+    public String formatTimeString()
     {
-        int[] result = new int[2];
         int time = this.getCurrTime();
+        int seconds;
+        int minutes;
 
-        result[0] = time % 60; // seconds going from 0-59
-        result[1] = time / 60; // minutes going from 0-1-2-...
+        seconds = time % 60; // seconds going from 0-59
+        minutes = time / 60; // minutes going from 0-1-2-...
+        String result = String.format("%d:%02d", minutes, seconds);
 
         return result;
     }
+
 }
