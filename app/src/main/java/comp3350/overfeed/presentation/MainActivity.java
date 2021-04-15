@@ -78,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
             if(!pause)
             {
                 timeLogic.incrementTime();
-                int[] time = timeLogic.formatTime();
-                timerTextView.setText(String.format("%d:%02d", time[1], time[0]));
+                String currTime = timeLogic.formatTimeString();
+                timerTextView.setText(currTime);
 
                 mealLogic.autoIncreaseMeals();
                 mealTextView.setText(mealLogic.mealsToString());
@@ -135,9 +135,8 @@ public class MainActivity extends AppCompatActivity {
         Intent statisticsIntent = new Intent(MainActivity.this, StatisticsActivity.class);
         Bundle extras = new Bundle();
 
-        int[] currTime = timeLogic.formatTime();
-        extras.putString("TIME_MINUTES", Integer.toString(currTime[1]));
-        extras.putString("TIME_SECONDS", String.format("%02d", currTime[0]));
+        String currTime = timeLogic.formatTimeString();
+        extras.putString("CURR_TIME", currTime);
         extras.putString("NUMBER_CLICKS", mealLogic.clicksToString());
         extras.putString("NUMBER_MEALS", mealLogic.totalMealsToString());
         statisticsIntent.putExtras(extras);
