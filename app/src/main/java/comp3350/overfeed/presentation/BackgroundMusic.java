@@ -1,12 +1,10 @@
-package comp3350.overfeed.logic;
+package comp3350.overfeed.presentation;
 
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
 import androidx.annotation.Nullable;
-
-import java.io.IOException;
 
 import comp3350.overfeed.R;
 

@@ -47,37 +47,19 @@ public class SaveAndLoadLogicTest {
     {
         System.out.println("Starting Save Logic Test One");
 
-//        Mockito.doReturn(1).when(mealLogic).getMeals();
-//        Mockito.doReturn(1).when(timeLogic).getCurrTime();
-//        Mockito.doReturn(10).when(achieveLogic).getNumAchievementsDone();
-
-
-
         mealLogic.increaseMeals();
         timeLogic.incrementTime();
         achieveLogic.checkClickAchievement(10);
 
-        assertEquals("Number of meals should be 1",
-                mealLogic.getMeals(), 1);
+        int ml = mealLogic.getMeals();
+        int tl = timeLogic.getCurrTime();
+        int al = achieveLogic.getNumAchievementsDone();
 
-//        mealLogic.increaseMeals();
-//        timeLogic.incrementTime();
-//        achieveLogic.checkClickAchievement(10);
-//
-//        int ml = mealLogic.getMeals();
-//        int tl = timeLogic.getCurrTime();
-//        int al = achieveLogic.getNumAchievementsDone();
-//
-//        loadLogic.loadAll();
-//
-//        assertEquals("ml should  be the same as the loaded ones",
-//                ml, mealLogic.getMeals());
-//
-//        assertEquals("tl should be the same as the loaded ones",
-//                tl, timeLogic.getCurrTime());
-//
-//        assertEquals("al should be the same as the loaded ones",
-//                al, achieveLogic.getNumAchievementsDone());
+        loadLogic.loadAll();
+
+        assertEquals("ml should  be the same as the loaded ones", ml, mealLogic.getMeals());
+        assertEquals("tl should be the same as the loaded ones", tl, timeLogic.getCurrTime());
+        assertEquals("al should be the same as the loaded ones", al, achieveLogic.getNumAchievementsDone());
 
         System.out.println("Finished Save Logic Test One");
     }
