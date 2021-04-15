@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import comp3350.overfeed.domainObjects.Achievement;
 import comp3350.overfeed.logic.AchievementsLogic;
+import comp3350.overfeed.persistence.AchievementPersistence;
 
 public class AchievementsLogicTest {
 
@@ -16,6 +17,7 @@ public class AchievementsLogicTest {
     @Before
     public void setUp() {
         achieveLogic = new AchievementsLogic();
+        achieveLogic.initializeData();
         pts = 0;
         achieve = null;
     }
@@ -109,6 +111,9 @@ public class AchievementsLogicTest {
         achieve = achieveLogic.getContent(2);
         assertTrue("Achievement at index 2 should be the 'Whiz' achievement",
                 achieve.getName().equals("You are a whiz!"));
+
+        AchievementPersistence pers = achieveLogic.getPersistence();
+        assertNotNull("Achievement Persistence should not be null", pers);
 
 
         System.out.println("Finished Achievements Logic Test One");
