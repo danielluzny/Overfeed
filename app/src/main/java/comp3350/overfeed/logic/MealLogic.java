@@ -17,6 +17,11 @@ public class MealLogic implements Serializable
     private final int[] UPGRADE_BASE_VALUES = {2, 5, 30, 100, 999}; // meals per second
     private final int[] UPGRADE_COST_MULTIPLIERS = {3, 3, 2, 2, 2};
 
+    private final int BASE_AMOUNT_ZERO = 0; // We need a default/base value for upgrades that we haven't unlocked yet.
+    private final int BASE_PER_SECOND_ZERO = 0;
+
+    private final int BASE_CLICK_PLATE = 1; // This is strictly for use in a base case situation. By default and without upgrades, the user generates 1 meal per click.
+
     private MealPersistence mealPersistence;
     private ArrayList<Upgrade> upgradeList;
 
@@ -98,7 +103,7 @@ public class MealLogic implements Serializable
         }
         else
         {
-            result = String.format("Cost for Next:%d Total Amount:%d Current Per Click:%d",UPGRADE_BASE_COSTS[0],0,1);
+            result = String.format("Cost for Next:%d Total Amount:%d Current Per Click:%d",UPGRADE_BASE_COSTS[0],BASE_AMOUNT_ZERO,BASE_CLICK_PLATE);
         }
 
         return result;
@@ -116,7 +121,7 @@ public class MealLogic implements Serializable
         }
         else
         {
-            result = String.format("Cost for Next:%d Total Amount:%d Current Per Second:%d",UPGRADE_BASE_COSTS[1],0,0);
+            result = String.format("Cost for Next:%d Total Amount:%d Current Per Second:%d",UPGRADE_BASE_COSTS[1],BASE_AMOUNT_ZERO,BASE_PER_SECOND_ZERO);
         }
 
         return result;
@@ -134,7 +139,7 @@ public class MealLogic implements Serializable
         }
         else
         {
-            result = String.format("Cost for Next:%d Total Amount:%d Current Per Second:%d",UPGRADE_BASE_COSTS[2],0,0);
+            result = String.format("Cost for Next:%d Total Amount:%d Current Per Second:%d",UPGRADE_BASE_COSTS[2],BASE_AMOUNT_ZERO,BASE_PER_SECOND_ZERO);
         }
 
         return result;
@@ -152,7 +157,7 @@ public class MealLogic implements Serializable
         }
         else
         {
-            result = String.format("Cost for Next:%d Total Amount:%d Current Per Second:%d",UPGRADE_BASE_COSTS[3],0,0);
+            result = String.format("Cost for Next:%d Total Amount:%d Current Per Second:%d",UPGRADE_BASE_COSTS[3],BASE_AMOUNT_ZERO,BASE_PER_SECOND_ZERO);
         }
 
         return result;
@@ -170,7 +175,7 @@ public class MealLogic implements Serializable
         }
         else
         {
-            result = String.format("Cost for Next:%d Total Amount:%d Current Per Second:%d",UPGRADE_BASE_COSTS[4],0,0);
+            result = String.format("Cost for Next:%d Total Amount:%d Current Per Second:%d",UPGRADE_BASE_COSTS[4],BASE_AMOUNT_ZERO,BASE_PER_SECOND_ZERO);
         }
 
         return result;

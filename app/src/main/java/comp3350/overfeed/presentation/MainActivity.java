@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
     TextView timerTextView;
 
     boolean pause = false; // Variable used to simplify functionality by stopping timer/upgrades when on other pages.
+    int saveIterator = 0; // Variables used to keep track of time in the thread. When the iterator hits 30 (30s, 30 thread executions), automatically save the game.
+    int saveExecute = 30;
 
     Runnable mealRunnable = new Runnable() // Thread that executes every second. Updates timer and meals per second.
     {
@@ -89,8 +91,19 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout), "Achievement Unlocked! " + newAchievement, Snackbar.LENGTH_SHORT);
                     mySnackbar.show();
                 }
+
+                saveIterator++;
             }
             saveLogic.initializeSaver(mealLogic, timeLogic, achLogic); // This line is here strictly because of ArrayList objects being updated asynchronously in android studio, despite us already initializing in onCreate().
+
+            if(saveIterator == saveExecute)
+            {
+                saveLogic.saveAll();
+                saveIterator = 0;
+                Context context = getApplicationContext();
+                Toast toast = Toast.makeText(context, "Automatic Save! Keep on clicking!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
 
             mealHandler.postDelayed(this, 1000);
         }
