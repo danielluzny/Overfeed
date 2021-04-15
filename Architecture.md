@@ -29,6 +29,9 @@
   
 - [Messages](https://code.cs.umanitoba.ca/3350-winter-2021-a01/group-8-overfeed-the-world/blob/master/app/src/main/java/comp3350/overfeed/presentation/Messages.java)  
   - The file for the view of the errors and warning messages that could be triggered in the game  
+  
+- [BackgroundMusic](https://code.cs.umanitoba.ca/3350-winter-2021-a01/group-8-overfeed-the-world/blob/master/app/src/main/java/comp3350/overfeed/logic/BackgroundMusic.java)  
+  - The class that deals with playing the background music in the game which features sounds from a restaurant.
 
 ### Logic Layer  
 - [Meal Logic](https://code.cs.umanitoba.ca/3350-winter-2021-a01/group-8-overfeed-the-world/blob/master/app/src/main/java/comp3350/overfeed/logic/MealLogic.java)  
@@ -45,9 +48,7 @@
   
 - [Save Logic](https://code.cs.umanitoba.ca/3350-winter-2021-a01/group-8-overfeed-the-world/blob/master/app/src/main/java/comp3350/overfeed/logic/SaveLogic.java)  
   - The class that deals with saving related logic such as methods for updating the save file to record the current progress in the game, etc.    
-  
-- [BackgroundMusic](https://code.cs.umanitoba.ca/3350-winter-2021-a01/group-8-overfeed-the-world/blob/master/app/src/main/java/comp3350/overfeed/logic/BackgroundMusic.java)  
-  - The class that deals with the logic related to playing the background music in the game which features sounds from a restaurant.
+
 
 ### Persistence Layer  
 - [Meal Persistence](https://code.cs.umanitoba.ca/3350-winter-2021-a01/group-8-overfeed-the-world/blob/master/app/src/main/java/comp3350/overfeed/persistence/MealPersistence.java)  
