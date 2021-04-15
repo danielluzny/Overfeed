@@ -49,9 +49,10 @@ public class MainActivity extends AppCompatActivity {
         playMusic();
     }
 
+    private Intent intent;
     //calls and starts music
     private void playMusic() {
-        Intent intent = new Intent(MainActivity.this, BackgroundMusic.class);
+        intent = new Intent(MainActivity.this, BackgroundMusic.class);
         startService(intent);
     }
     
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        stopService(intent);
         super.onDestroy();
     }
 

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Overfeed the World, the Game!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+<style>
+body,h1,h3,h5 {font-family: 'Roboto Slab', serif;}
+h5 {color:blue;}
+p {text-indent:20px;}
+body {font-size:16px;}
+.pad-me {margin-left:30px}
+.container {display:flex; justify-content:left; flex-wrap:wrap;}
+.container-small {display:flex}
+.feature {padding:0.35em 0.75em;}
+.feature-title {text-transform:uppercase; font-weight:bold;}
+.full {height:100%;}
+</style>
+
+<body>
+
+<!-- Navbar/menu -->
+<nav class="w3-bar w3-indigo w3-top w3-large" style="z-index:3;width:full;font-weight:bold;"><br>
+    <div class="w3-bar">
+        <a href="#home" onclick="scrollTo(home)" class="w3-bar-item w3-button w3-hover-white">Home</a>
+        <a href="#vision" onclick="scrollTo(vision)" class="w3-bar-item w3-button w3-hover-white">Vision</a>
+        <a href="#features" onclick="scrollTo(features)" class="w3-bar-item w3-button w3-hover-white">Features</a>
+        <a href="#members" onclick="scrollTo(members)" class="w3-bar-item w3-button w3-hover-white">Members</a>
+        <a href="#salespitch" onclick="scrollTo(salespitch)" class="w3-bar-item w3-button w3-hover-white">Sales Pitch</a>
+        <a href="#video" onclick="scrollTo(video)" class="w3-bar-item w3-button w3-hover-white">Video</a>
+        <a href="#postmortem" onclick="scrollTo(postmortem)" class="w3-bar-item w3-button w3-hover-white">Postmortem</a>
+        <a href="#velocity" onclick="scrollTo(velocity)" class="w3-bar-item w3-button w3-hover-white">Velocity Charts</a>
+    </div>
+</nav>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main full w3-padding-top-48">
+
+    <!-- Home -->
+    <div class="w3-container" style="margin-top:40px" id="home">
+        <h1 class="w3-jumbo pad-me"><b>Overfeed the World</b></h1>
+        <h1 class="w3-xxlarge w3-text-indigo"><b>Feed them till they're full, then feed them some more.</b></h1>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="vision">
+    </div>
+    <br>
+
+    <!-- Vision -->
+    <div class="w3-container">
+        <h1 class="w3-xxxlarge w3-text-black pad-me"><b>Vision</b></h1>
+            <h5>Vision Statement</h5>
+            <p>The Overfeed game is a way to spend time when players are looking to occupy themselves.
+                It does this through an addictive food serving themed cookie clicker game that increases in scale exponentially over time.
+                Players will be able to view their progress in the form of food made and achievements unlocked.<br><br>
+                Players will start off as a cook making one meal each time they click on the screen.
+                Each meal sold will increase the money they have to spend.
+                This enables them to buy upgrades in the form of more food production such as a food truck or a restaurant, higher priced food because of quality ingredients,
+                more workers to produce food autonomously, and more recipes to increase average meal cost and change the foods appearance.
+                Eventually, players will be able to start a company that grows in size to become national, international, and perhaps even planetary.<br><br>
+                The game will sate player’s boredom as they sate the world’s hunger.
+                Automation allows the player to scale up production without getting carpal tunnel, and random events will give bonus opportunities to serve more meals for birthday parties,
+                weddings and other occasions to grow the player’s wallet in leaps and bounds.
+                The target demographic is Android users looking to kill some time and feel a sense of achievement while they are entertained.
+                Basically, any person, whether a casual or experienced gamer, will be able to appreciate the game.<br><br>
+                Features of Overfeed include things such as progress saving, viewing statistics, upgrading, random events, fantastic design schemes, music, a storyline, and a variety of technical options.
+                These will allow users to have the most control over how they choose to play the game and deliver a satisfying experience.
+                Competing click-type games will be left in Overfeed’s shadow as it takes the spotlight with stunning features, storylines and a simple, sleek, intuitive design.<br><br>
+                The app will begin in early iterations with the bare bones of the game: making food, keeping track of how much has been made, and saving progress.
+                Further depth will be added in the form of upgrades, the design will be improved with artwork, and music will help keep the player entertained.
+                For individuals who do not want to listen to music, the option to mute will be given.
+                Finally, the full game will have a storyline, random events to increase progress faster, and achievements to provide progress a sense of time as a milestone.<br><br>
+                We at Overfeed will consider the game a success depending on user experience and the quality of features.
+                If players can play for 10 minutes and come back to the game to serve more food and unlock more achievements after their first session, Overfeed will be successful.
+                If our features are numerous, entertaining, and have minimal bugs, then we will feel proud as programmers and successful as individuals.<br><br>
+                The Overflow game development plan will follow the Git Flow branching strategy of maintaining a Development branch where features are branched off of then merged back into,
+                a Release branch for features that are ready in time for launch and just need bug fixes, and a Main branch for fully finished versions and hotfixes.
+            </p>
+            <h5>Demographic</h5>
+            <p>The indended users are bored Android users who enjoy playing games in their spare time, such as in a waiting room or before a class.
+                The users are expected to only play for a short time and come back to play repeatedly- students, professors, and anyone visiting the DMV.
+            </p>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="features">
+    </div>
+    <br>
+
+    <!-- Features -->
+    <div class="w3-container">
+        <div>
+            <h1 class="w3-xxxlarge w3-text-black pad-me"><b>Features</b></h1>
+        </div>
+
+        <div class="w3-row-padding container-small">
+            <div class="feature w3-center w3-light-blue">
+                <h5 class="feature-title">visually appealing design</h5>
+                <p class="w3-center">
+                    Beautiful, hand-selected, artfully made graphics make this game a delight to the eyes
+                    and distract users from the drab realities of the 3D world.
+                </p>
+            </div>
+
+            <div class="feature w3-center w3-light-blue">
+                <h5 class="feature-title">background music</h5>
+                <p class="w3-center">
+                    A recording taken from the back of a busy restaurant gives the illusion of being a chef and actually contributing to society!
+                </p>
+            </div>
+
+            <div class="feature w3-center w3-light-blue">
+                <h5 class="feature-title">upgrades</h5>
+                <p class="w3-center">
+                    Upgrades increase and automate production, freeing the user from the chore of tapping a screen.
+                    The game plays itself! The user can simply bask in the artificial aura of accomplishment.
+                </p>
+            </div>
+
+            <div class="feature w3-center w3-light-blue">
+                <h5 class="feature-title">achievements and statistics</h5>
+                <p>
+                    Goals have been engineered to provide catharsis for users. Anyone who turns to a mindless game
+                    is proven to be in need of stress relief, which is capitalized on by this <i>free</i> game.
+                </p>
+            </div>
+
+            <div class="feature w3-center w3-light-blue">
+                <h5 class="feature-title">progress saving & loading</h5>
+                <p>
+                    To prevent users from becoming frustrated by starting from scratch each play session, saving and loading progress
+                    has been implemented at <b>GREAT</b> expense to the health of the team!
+                </p>
+            </div>
+
+            <div class="feature w3-center w3-light-blue">
+                <h5 class="feature-title">flavour text and meal serving</h5>
+                <p>
+                    Delightfully fun writing has been added to achievements and upgrades, providing the user with extra sources of entertainment as they
+                    feed the world with every tap of the plate.
+                </p>
+            </div>
+        </div>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="members">
+    </div>
+    <br>
+
+    <!-- Members -->
+    <div class="w3-container">
+        <div>
+            <h1 class="w3-xxxlarge w3-text-black pad-me"><b>Members</b></h1>
+            <p>The most laid back and supportive group of people to be randomly chosen to work together in our collective memory.<br>
+                Each of us is now capable of:
+            </p>
+            <ul>
+                <li>Coding with android studio</li>
+                <li>Planning software using Agile methodology</li>
+                <li>Working with version control software in a team environment</li>
+                <li>Unit, Integration, and System testing</li>
+                <li>Designing multi-layered architecture</li>
+            </ul>
+            <h5>Drum roll please:</h5>
+        </div>
+
+        <!-- Us -->
+        <div class="w3-row-padding w3-grayscale container">
+
+            <div class="w3-quarter m4 w3-margin-bottom">
+                <div class="w3-blue">
+                    <img src="Images/dan.jpg" alt="Dan" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Daniel Luzny</h3>
+                        <p class="w3-opacity">Fallback Man</p>
+                        <p class="w3-opacity">The All-Nighter</p>
+                        <p class="w3-opacity">He Who Conquered HSQDB</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-quarter m4 w3-margin-bottom">
+                <div class="w3-blue">
+                    <img src="Images/chris.jpg" alt="Chris" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Chris Ciceron</h3>
+                        <p class="w3-opacity">The Most Friendliest</p>
+                        <p class="w3-opacity">Skilled Pixelation Artist</p>
+                        <p class="w3-opacity">The Reliable Communicator</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-quarter m4 w3-margin-bottom">
+                <div class="w3-blue">
+                    <img src="Images/cain.jpg" alt="Cain" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Cain Stoeke</h3>
+                        <p class="w3-opacity">The Rearguard</p>
+                        <p class="w3-opacity">Keeper of the Tests</p>
+                        <p class="w3-opacity">Seriously Give This Guy an Award</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-quarter m4 w3-margin-bottom">
+                <div class="w3-blue">
+                    <img src="Images/robert.png" alt="Robert" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Robert Rose</h3>
+                        <p class="w3-opacity">Website Maker</p>
+                        <p class="w3-opacity">The Unlucky One</p>
+                        <p class="w3-opacity">HSQDB Kicked His Teeth In</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="salespitch">
+    </div>
+    <br>
+
+    <!-- Sales Pitch -->
+    <div class="w3-container">
+        <h1 class="w3-xxxlarge w3-text-black pad-me"><b>Sales Pitch</b></h1>
+        <h5>Why you and your loved ones should play our game</h5>
+        <p1>Are you frequently forced to wait?<br>
+            Are you having trouble getting that productivity high or concerned it'll go away?<br>
+            <b>Then this is the solution you've been waiting for!</b><br>
+        </p1>
+        <p>Our armchair psychologist assure us that an artificially induced sense of accomplishment will keep boredom at bay.
+            While not currently backed by research(as far as we are aware after deciding not to look into it),
+            pure reason dictates that hearing the low rumble of conversation and occasional laughter
+            aid in relaxing the mind, releasing stress that you don't know you have.
+            See your success as the numbers get bigger and pop-ups provide the positive
+            reinforcement needed to keep playing. You'll be feeling better in no time.
+        </p>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="video">
+    </div>
+    <br>
+
+    <!-- Video -->
+    <div class="w3-container">
+        <div>
+            <h1 class="w3-xxxlarge w3-text-black pad-me"><b>Video</b></h1>
+            <h5>Trailer for Overfeed the World</h5>
+        </div>
+
+        <!-- The Video -->
+        <div class="w3-row-padding w3-grayscale container w3-center" >
+            <iframe width="644" height="362" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="postmortem">
+    </div>
+    <br>
+
+    <!-- Postmortem -->
+    <div class="w3-container">
+        <div>
+            <h1 class="w3-xxxlarge w3-text-black pad-me"><b>Postmortem</b></h1>
+            <h5>Proof that we did, in fact, learn from our mistakes.</h5>
+        </div>
+
+        <div class="w3-row-padding">
+            <p>
+                Topic 1
+            </p>
+
+            <p>
+                Topic 2
+            </p>
+
+            <p>
+                Topic 3
+            </p>
+
+        </div>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="velocity">
+    </div>
+    <br>
+
+    <!-- Velocity Charts -->
+
+    <br>
+
+</div>
+
+<!-- W3.CSS Container -->
+<script>
+function scrollTo(section) {
+  var elmnt = document.getElementById(section);
+  elmnt.scrollIntoView();
+}
+</script>
+
+</body>
+</html>
