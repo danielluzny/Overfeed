@@ -14,11 +14,13 @@ p {text-indent:20px;}
 body {font-size:16px;}
 .container {display:flex;justify-content:left;flex-wrap:wrap;}
 .container-small {display:flex}
-.feature {flex-grow:1;text-transform:uppercase;padding:0.35em 0.75em;}
+.feature {padding:0.35em 0.75em;}
+.feature-title {text-transform:uppercase;font-weight:bold;}
 .full {height:100%;}
 </style>
 
 <body>
+
 <!-- Navbar/menu -->
 <nav class="w3-bar w3-indigo w3-top w3-large" style="z-index:3;width:full;font-weight:bold;"><br>
     <div class="w3-bar">
@@ -43,6 +45,7 @@ body {font-size:16px;}
         <hr style="width:99%;border:5px solid blue" class="w3-round" id="vision">
     </div>
     <br>
+
     <!-- Vision -->
     <div class="w3-container">
         <h1 class="w3-xxxlarge w3-text-black"><b>Vision</b></h1>
@@ -74,11 +77,13 @@ body {font-size:16px;}
                 a Release branch for features that are ready in time for launch and just need bug fixes, and a Main branch for fully finished versions and hotfixes.
             </p>
             <h5>Demographic</h5>
-            <p>The indended users are bored Android users who enjoy playing games in their spare time.
+            <p>The indended users are bored Android users who enjoy playing games in their spare time, such as in a waiting room or before a class.
+                The users are expected to only play for a short time and come back to play repeatedly- students, professors, and anyone visiting the DMV.
             </p>
         <hr style="width:99%;border:5px solid blue" class="w3-round" id="features">
     </div>
     <br>
+
     <!-- Features -->
     <div class="w3-container">
         <div>
@@ -86,44 +91,49 @@ body {font-size:16px;}
         </div>
 
         <div class="w3-row-padding container-small">
-            <div class="feature">
-                <h5>Feature</h5>
+            <div class="feature w3-center w3-light-blue">
+                <h5 class="feature-title">Appealing design</h5>
                 <p class="w3-center">
-                    Details blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+                    Beautiful, hand-selected, artfully made graphics make this game a delight to the eyes
+                    and distract users from the drab realities of the 3D world.
                 </p>
             </div>
 
-            <div class="feature">
-                <h5>Feature</h5>
+            <div class="feature w3-center w3-light-blue">
+                <h5 class="feature-title">Audio</h5>
                 <p class="w3-center">
-                    Details blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+                    A recording taken from the back of a busy restaurant gives the illusion of being a chef and actually contributing to society!
                 </p>
             </div>
 
-            <div class="feature">
-                <h5>Feature</h5>
+            <div class="feature w3-center w3-light-blue">
+                <h5 class="feature-title">Upgrades</h5>
                 <p class="w3-center">
-                    Details blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+                    Upgrades increase and automate production, freeing the user from the chore of tapping a screen.
+                    The game plays itself! The user can simply bask in the artificial aura of accomplishment.
                 </p>
             </div>
 
-            <div class="feature">
-                <h5>Feature</h5>
-                <p class="w3-center">
-                    Details blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+            <div class="feature w3-center w3-light-blue">
+                <h5 class="feature-title">Achievements and Statistics</h5>
+                <p>
+                    Goals have been engineered to provide catharsis for users. Anyone who turns to a mindless game
+                    is proven to be in need of stress relief, which is capitalized on by this <i>free</i> game.
                 </p>
             </div>
 
-            <div class="feature">
-                <h5>Feature</h5>
-                <p class="w3-center">
-                    Details blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+            <div class="feature w3-center w3-light-blue">
+                <h5 class="feature-title">Progress saving & loading</h5>
+                <p>
+                    To prevent users from becoming frustrated by starting from scratch each play session, saving and loading progress
+                    has been implemented at <b>GREAT</b> expense to the health of the team!
                 </p>
             </div>
         </div>
         <hr style="width:99%;border:5px solid blue" class="w3-round" id="members">
     </div>
     <br>
+
     <!-- Members -->
     <div class="w3-container">
         <div>
@@ -173,7 +183,7 @@ body {font-size:16px;}
 
             <div class="w3-quarter m4 w3-margin-bottom">
                 <div class="w3-blue">
-                    <img src="Images/robert.jpg" alt="Robert" style="width:100%">
+                    <img src="Images/robert.png" alt="Robert" style="width:100%">
                     <div class="w3-container">
                         <h3>Robert Rose</h3>
                         <p class="w3-opacity">Website Maker</p>
@@ -186,6 +196,7 @@ body {font-size:16px;}
         <hr style="width:99%;border:5px solid blue" class="w3-round" id="salespitch">
     </div>
     <br>
+
     <!-- Sales Pitch -->
     <div class="w3-container">
         <h1 class="w3-xxxlarge w3-text-black"><b>Sales Pitch</b></h1>
@@ -195,6 +206,7 @@ body {font-size:16px;}
         <hr style="width:99%;border:5px solid blue" class="w3-round" id="video">
     </div>
     <br>
+
     <!-- Video -->
     <div class="w3-container">
         <div>
@@ -210,6 +222,7 @@ body {font-size:16px;}
         <hr style="width:99%;border:5px solid blue" class="w3-round" id="postmortem">
     </div>
     <br>
+
     <!-- Postmortem -->
     <div class="w3-container">
         <div>
@@ -234,19 +247,19 @@ body {font-size:16px;}
         <hr style="width:99%;border:5px solid blue" class="w3-round" id="velocity">
     </div>
     <br>
+
     <!-- Velocity Charts -->
 
     <br>
+
 </div>
 
 <!-- W3.CSS Container -->
 <script>
-
 function scrollTo(section) {
   var elmnt = document.getElementById(section);
   elmnt.scrollIntoView();
 }
-
 </script>
 
 </body>
