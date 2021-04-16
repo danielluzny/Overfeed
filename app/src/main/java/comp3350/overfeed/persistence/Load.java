@@ -17,6 +17,4 @@ public interface Load
     void loadNumAchiev();
 
     void loadAchievDone();
-
-    void loadAchiev();
 }

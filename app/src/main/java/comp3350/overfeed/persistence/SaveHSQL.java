@@ -34,8 +34,6 @@ public class SaveHSQL implements Save
         saveTime();
         saveNumAchiev();
         saveAchievDone();
-
-        // saveAchiev();
     }
 
     public void saveCurrMeals()
@@ -163,11 +161,6 @@ public class SaveHSQL implements Save
         {
             throw new PersistenceException(e);
         }
-    }
-
-    public void saveAchiev()
-    {
-
     }
 
     private Connection connection() throws SQLException {

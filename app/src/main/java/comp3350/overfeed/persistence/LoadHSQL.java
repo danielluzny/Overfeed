@@ -35,8 +35,6 @@ public class LoadHSQL implements Load
        loadTime();
        loadNumAchiev();
        loadAchievDone();
-
-     //  loadAchiev();
     }
 
    public void loadCurrMeals()
@@ -177,11 +175,6 @@ public class LoadHSQL implements Load
         {
             throw new PersistenceException(e);
         }
-    }
-
-    public void loadAchiev()
-    {
-
     }
 
     private Connection connection() throws SQLException {

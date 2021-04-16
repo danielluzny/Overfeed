@@ -18,6 +18,4 @@ public interface Save
 
     void saveAchievDone();
 
-    void saveAchiev();
-
 }
