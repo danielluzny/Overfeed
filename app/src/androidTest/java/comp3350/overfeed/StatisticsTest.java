@@ -6,6 +6,7 @@ import androidx.test.filters.LargeTest;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -27,24 +28,25 @@ import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static androidx.test.espresso.Espresso.pressBack;
-
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class IncreaseMealTest
+public class StatisticsTest
 {
     @Rule
     public ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void increaseMealTest()
+    public void statisticsTest()
     {
         for(int i=0; i<10; i++)
         {
             onView(withId(R.id.imageButtonPlate)).perform(click());
         }
 
-        onView(withId(R.id.counterView)).check(matches(withText("10")));
+        onView(withId(R.id.buttonStatistics)).perform(click());
+        onView(withId(R.id.textTotalClicks)).check(matches(withText("10")));
+        onView(withId(R.id.textTotalMeals)).check(matches(withText("10")));
     }
+
 }
