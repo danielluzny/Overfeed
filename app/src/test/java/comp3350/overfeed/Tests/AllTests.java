@@ -3,7 +3,6 @@ package comp3350.overfeed.Tests;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import comp3350.overfeed.Tests.LogicTests.BackgroundMusicTest;
 import comp3350.overfeed.Tests.LogicTests.MealLogicTest;
 import comp3350.overfeed.Tests.LogicTests.SaveAndLoadLogicTest;
 import comp3350.overfeed.Tests.LogicTests.TimeLogicTest;
@@ -15,7 +14,6 @@ import comp3350.overfeed.Tests.LogicTests.AchievementsLogicTest;
         MealLogicTest.class,
         AchievementsLogicTest.class,
         SaveAndLoadLogicTest.class,
-        BackgroundMusicTest.class
 })
 
 public class AllTests

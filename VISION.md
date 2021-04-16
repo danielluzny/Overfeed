@@ -1,3 +1,4 @@
+
 # Group 8 Overfeed
 
 *Feed them till they're full, then feed them some more!*
@@ -16,7 +17,7 @@
 
 ### How to run it
 
-1. Clone the repository  
+1. Cloning the repository  
     - Go to the [home page](https://code.cs.umanitoba.ca/3350-winter-2021-a01/group-8-overfeed-the-world) of the project  
     - Check if you are on the [master](https://code.cs.umanitoba.ca/3350-winter-2021-a01/group-8-overfeed-the-world/-/tree/master) branch of the repository  
     - Download the repository as a .ZIP file *or* use the [link](https://code.cs.umanitoba.ca/3350-winter-2021-a01/group-8-overfeed-the-world.git) to clone the repository  
