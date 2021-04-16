@@ -1,24 +1,19 @@
 package comp3350.overfeed.logic;
 
-import android.os.Handler;
-
+import comp3350.overfeed.persistence.TimeData;
 import comp3350.overfeed.persistence.TimePersistence;
 
 public class TimeLogic
 {
-    private long startTime;
     private TimePersistence timePersistence;
 
-    public TimeLogic()
-    {
-        startTime = System.currentTimeMillis();
-        timePersistence = new TimePersistence();
-    }
+    public TimeLogic() { }
 
-    public void calculateTime() // Time is in seconds
+    public void initializeData() { timePersistence = new TimeData(); }
+
+    public void incrementTime()
     {
-        int seconds = (int) ((System.currentTimeMillis() - startTime) / 1000); // divide by 1000 here because 1000ms == 1s
-        timePersistence.setCurrTime(seconds);
+        timePersistence.setCurrTime(timePersistence.getCurrTime()+1);
     }
 
     public int getCurrTime()
@@ -26,14 +21,19 @@ public class TimeLogic
         return timePersistence.getCurrTime();
     }
 
-    public int[] formatTime()
-    {
-        int[] result = new int[2];
-        int time = this.getCurrTime();
+    public TimePersistence getPersistence() { return this.timePersistence; }
 
-        result[0] = time % 60; // seconds going from 0-59
-        result[1] = time / 60; // minutes going from 0-1-2-...
+    public String formatTimeString()
+    {
+        int time = this.getCurrTime();
+        int seconds;
+        int minutes;
+
+        seconds = time % 60; // seconds going from 0-59
+        minutes = time / 60; // minutes going from 0-1-2-...
+        String result = String.format("%d:%02d", minutes, seconds);
 
         return result;
     }
+
 }

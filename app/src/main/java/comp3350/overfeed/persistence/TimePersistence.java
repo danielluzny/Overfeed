@@ -1,21 +1,8 @@
 package comp3350.overfeed.persistence;
 
-public class TimePersistence
+public interface TimePersistence
 {
-    private int currTime;
+     int getCurrTime();
 
-    public TimePersistence()
-    {
-        this.currTime = 0;
-    }
-
-    public int getCurrTime()
-    {
-        return this.currTime;
-    }
-
-    public void setCurrTime(int t)
-    {
-        this.currTime = t;
-    }
+     void setCurrTime(int t);
 }

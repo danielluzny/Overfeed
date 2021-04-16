@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Overfeed the World, the Game!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+<style>
+body,h1,h3,h5 {font-family: 'Roboto Slab', serif;}
+h5 {color:blue; margin:10px;}
+p {text-indent:20px;}
+body {font-size:16px;}
+.pad-me {margin-left:30px}
+.container {display:flex; justify-content:left; flex-wrap:wrap;}
+.container-small {display:flex}
+.feature {padding:0.35em 0.75em;}
+.feature-title {text-transform:uppercase; font-weight:bold;}
+.full {height:100%; max-width:90%; margin:auto;}
+</style>
+
+<body>
+
+<!-- Navbar/menu -->
+<nav class="w3-bar w3-indigo w3-top w3-large" style="z-index:3;width:full;font-weight:bold;"><br>
+    <div class="w3-bar">
+        <a href="#home" onclick="scrollTo(home)" class="w3-bar-item w3-button w3-hover-white">Home</a>
+        <a href="#vision" onclick="scrollTo(vision)" class="w3-bar-item w3-button w3-hover-white">Vision</a>
+        <a href="#features" onclick="scrollTo(features)" class="w3-bar-item w3-button w3-hover-white">Features</a>
+        <a href="#members" onclick="scrollTo(members)" class="w3-bar-item w3-button w3-hover-white">Members</a>
+        <a href="#salespitch" onclick="scrollTo(salespitch)" class="w3-bar-item w3-button w3-hover-white">Sales Pitch</a>
+        <a href="#video" onclick="scrollTo(video)" class="w3-bar-item w3-button w3-hover-white">Video</a>
+        <a href="#postmortem" onclick="scrollTo(postmortem)" class="w3-bar-item w3-button w3-hover-white">Postmortem</a>
+        <a href="#velocity" onclick="scrollTo(velocity)" class="w3-bar-item w3-button w3-hover-white">Velocity Chart</a>
+    </div>
+</nav>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main full w3-padding-top-48" id="home">
+
+    <!-- Home -->
+    <div class="w3-container" style="margin-top:40px">
+        <br>
+        <h1 class="w3-jumbo pad-me w3-padding-large"><b>Overfeed the World</b></h1>
+        <h1 class="w3-xxlarge w3-text-indigo"><b>Feed them till they're full, then feed them some more.</b></h1>
+        <hr style="width:60%;border:5px solid blue" class="w3-round" id="vision">
+    </div>
+    <br><br><br><br>
+
+    <!-- Vision -->
+    <div class="w3-container">
+        <h1 class="w3-xxxlarge w3-text-black pad-me" style="padding-left:30px; padding-bottom:20px;"><b>Vision</b></h1>
+            <h5>Vision Statement</h5>
+            <p class="w3-light-gray">The Overfeed game is a way to spend time when players are looking to occupy themselves.
+                It does this through an addictive food serving themed cookie clicker game that increases in scale exponentially over time.
+                Players will be able to view their progress in the form of food made and achievements unlocked.<br><br>
+                Players will start off as a cook making one meal each time they click on the screen.
+                Each meal sold will increase the money they have to spend.
+                This enables them to buy upgrades in the form of more food production such as a food truck or a restaurant, higher priced food because of quality ingredients,
+                more workers to produce food autonomously, and more recipes to increase average meal cost and change the foods appearance.
+                Eventually, players will be able to start a company that grows in size to become national, international, and perhaps even planetary.<br><br>
+                The game will sate player’s boredom as they sate the world’s hunger.
+                Automation allows the player to scale up production without getting carpal tunnel, and random events will give bonus opportunities to serve more meals for birthday parties,
+                weddings and other occasions to grow the player’s wallet in leaps and bounds.
+                The target demographic is Android users looking to kill some time and feel a sense of achievement while they are entertained.
+                Basically, any person, whether a casual or experienced gamer, will be able to appreciate the game.<br><br>
+                Features of Overfeed include things such as progress saving, viewing statistics, upgrading, random events, fantastic design schemes, music, a storyline, and a variety of technical options.
+                These will allow users to have the most control over how they choose to play the game and deliver a satisfying experience.
+                Competing click-type games will be left in Overfeed’s shadow as it takes the spotlight with stunning features, storylines and a simple, sleek, intuitive design.<br><br>
+                The app will begin in early iterations with the bare bones of the game: making food, keeping track of how much has been made, and saving progress.
+                Further depth will be added in the form of upgrades, the design will be improved with artwork, and music will help keep the player entertained.
+                For individuals who do not want to listen to music, the option to mute will be given.
+                Finally, the full game will have a storyline, random events to increase progress faster, and achievements to provide progress a sense of time as a milestone.<br><br>
+                We at Overfeed will consider the game a success depending on user experience and the quality of features.
+                If players can play for 10 minutes and come back to the game to serve more food and unlock more achievements after their first session, Overfeed will be successful.
+                If our features are numerous, entertaining, and have minimal bugs, then we will feel proud as programmers and successful as individuals.<br><br>
+                The Overflow game development plan will follow the Git Flow branching strategy of maintaining a Development branch where features are branched off of then merged back into,
+                a Release branch for features that are ready in time for launch and just need bug fixes, and a Main branch for fully finished versions and hotfixes.
+            </p><br>
+            <h5>Demographic</h5>
+            <p class="w3-light-gray">The indended users are bored Android users who enjoy playing games in their spare time, such as in a waiting room or before a class.
+                The users are expected to only play for a short time and come back to play repeatedly- students, professors, and anyone visiting the DMV.
+            </p><br><br>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="features">
+    </div>
+    <br><br><br><br>
+
+    <!-- Features -->
+    <div class="w3-container">
+        <div class="w3-center">
+            <h1 class="w3-xxxlarge w3-text-black pad-me" style="padding-bottom:20px;"><b>Features</b></h1>
+        </div><br>
+        <div class="w3-row-padding container-small w3-light-gray">
+            <div class="feature w3-center">
+                <h5 class="feature-title">achievements and statistics</h5>
+                <p>
+                    Goals have been engineered to provide catharsis for users. Anyone who turns to a mindless game
+                    is proven to be in need of stress relief, which is capitalized on by this <i>free</i> game.
+                </p>
+            </div>
+
+            <div class="feature w3-center">
+                <h5 class="feature-title">progress saving & loading</h5>
+                <p>
+                    To prevent users from becoming frustrated by starting from scratch each play session, saving and loading progress
+                    has been implemented at <b>GREAT</b> expense to the health of the team!
+                </p>
+            </div>
+
+            <div class="feature w3-center">
+                <h5 class="feature-title">flavour text and meal serving</h5>
+                <p>
+                    Delightfully fun writing has been added to achievements and upgrades, providing the user with extra sources of entertainment as they
+                    feed the world with every tap of the plate.
+                </p>
+            </div>
+        </div>
+        <br>
+        <div class="w3-row-padding container-small w3-light-gray">
+            <div class="feature w3-center">
+                <h5 class="feature-title">visually appealing design</h5>
+                <p class="w3-center">
+                    Beautiful, hand-selected, artfully made graphics make this game a delight to the eyes
+                    and distract users from the drab realities of the 3D world.
+                </p>
+            </div>
+
+            <div class="feature w3-center">
+                <h5 class="feature-title">background music</h5>
+                <p class="w3-center">
+                    A recording taken from the back of a busy restaurant gives the illusion of being a chef and actually contributing to society!
+                </p>
+            </div>
+
+            <div class="feature w3-center">
+                <h5 class="feature-title">upgrades</h5>
+                <p class="w3-center">
+                    Upgrades increase and automate production, freeing the user from the chore of tapping a screen.
+                    The game plays itself! The user can simply bask in the artificial aura of accomplishment.
+                </p>
+            </div>
+        </div><br><br>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="members">
+    </div>
+    <br><br><br><br>
+
+    <!-- Members -->
+    <div class="w3-container">
+        <div>
+            <h1 class="w3-xxxlarge w3-text-black pad-me w3-center" style="padding-bottom:20px;"><b>Members</b></h1>
+            <p>The most laid back and supportive group of people to be randomly chosen to work together in our collective memory.<br>
+                Each of us is now capable of:
+            </p>
+            <ul style="padding-left:150px">
+                <li>Coding with android studio</li>
+                <li>Planning software using Agile methodology</li>
+                <li>Working with version control software in a team environment</li>
+                <li>Unit, Integration, and System testing</li>
+                <li>Designing multi-layered architecture</li>
+            </ul><br>
+            <h5>Drum roll please:</h5>
+        </div><br>
+
+        <!-- Us -->
+        <div class="w3-row-padding w3-grayscale container">
+
+            <div class="w3-quarter m4 w3-margin-bottom">
+                <div class="w3-blue">
+                    <img src="Images/dan.jpg" alt="Dan" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Daniel Luzny</h3>
+                        <p class="w3-opacity">Fallback Man</p>
+                        <p class="w3-opacity">The All-Nighter</p>
+                        <p class="w3-opacity">He Who Conquered HSQDB</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-quarter m4 w3-margin-bottom">
+                <div class="w3-blue">
+                    <img src="Images/chris.jpg" alt="Chris" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Chris Ciceron</h3>
+                        <p class="w3-opacity">The Most Friendliest</p>
+                        <p class="w3-opacity">Skilled Pixelation Artist</p>
+                        <p class="w3-opacity">The Reliable Communicator</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-quarter m4 w3-margin-bottom">
+                <div class="w3-blue">
+                    <img src="Images/cain.jpg" alt="Cain" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Cain Stoeke</h3>
+                        <p class="w3-opacity">The Rearguard</p>
+                        <p class="w3-opacity">Keeper of the Tests</p>
+                        <p class="w3-opacity">Seriously Give This Guy an Award</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-quarter m4 w3-margin-bottom">
+                <div class="w3-blue">
+                    <img src="Images/robert.png" alt="Robert" style="width:100%">
+                    <div class="w3-container">
+                        <h3>Robert Rose</h3>
+                        <p class="w3-opacity">Website Maker</p>
+                        <p class="w3-opacity">The Unlucky One</p>
+                        <p class="w3-opacity">HSQDB Kicked His Teeth In</p>
+                    </div>
+                </div>
+            </div>
+        </div><br><br>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="salespitch">
+    </div>
+    <br><br><br><br>
+
+    <!-- Sales Pitch -->
+    <div class="w3-container">
+        <div class="w3-row-padding container-small">
+            <div class="m4 w3-margin-bottom w3-margin-right" style="width:70%">
+                <h1 class="w3-xxxlarge w3-text-black pad-me w3-center" style="padding-bottom:20px;"><b>Sales Pitch</b></h1>
+                <h5>Why you and your loved ones should play our game</h5><br>
+                <p1>I find myself waiting a lot <i>in these complicated times</i> whether I'm at an appointment, at home, or waiting outside a business due to reduced capacity.<br>
+                    While I'm wait, I feel unproductive. <br>Bored. <br>Lonely on occasion. <br>However, if you can empathize with my situation, then I have good news!<br><br>
+                    <b>Because this is the solution you've been waiting for.</b><br>
+                </p1>
+                <p class="w3-light-gray">Our armchair psychologist assure us that an artificially induced sense of accomplishment will keep boredom at bay.
+                    While not currently backed by research(as far as we are aware after deciding not to look into it),
+                    pure reason dictates that hearing the low rumble of conversation and occasional laughter
+                    aid in relaxing the mind, releasing stress that you don't know you have.
+                    See your success as the numbers get bigger and pop-ups provide the positive
+                    reinforcement needed to keep playing. You'll be feeling better in no time.
+                </p><br>
+            </div>
+            <div class="m4 w3-margin-bottom" style="width:30%">
+                <img src="Images/game-screenshot.png" alt="Screenshot of the App" style="width:100%">
+            </div>
+        </div><br><br>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="video">
+    </div>
+    <br><br><br><br>
+
+    <!-- Video -->
+    <div class="w3-container">
+        <div>
+            <h1 class="w3-xxxlarge w3-text-black pad-me w3-center" style="padding-bottom:20px;"><b>Video</b></h1>
+            <h5>Trailer for Overfeed the World</h5>
+        </div>
+
+        <!-- The Video -->
+        <div class="w3-row-padding w3-grayscale container w3-center" >
+            <iframe width="1280" height="721" src="https://www.youtube.com/embed/cMKKVWR4l3I" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div><br><br>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="postmortem">
+    </div>
+    <br><br><br><br>
+
+    <!-- Postmortem -->
+    <div class="w3-container">
+        <div>
+            <h1 class="w3-xxxlarge w3-text-black pad-me" style="padding-left:30px; padding-bottom:20px;"><b>Postmortem</b></h1>
+            <h5>Proof that we did, in fact, learn from our mistakes.</h5>
+        </div>
+
+        <div class="w3-row-padding w3-light-gray">
+            <p>
+                In the beginning of the class our group stayed on top of the project, finishing with plenty of time to spare.
+                We set small milestones and met them repeatedly. But over time, other classes and situations slowed everyone down in different ways, and we procrastinated
+                with the iterations which came back to bite us. Especially the third iteration.<br>
+                Looking back, keeping the pace going was important, and setting milestones for ourselves helped a lot.
+                Biting off more than we could handle hurt pretty bad too, impacting the quality of other features.<br>
+                Going forward we're all going to be practicing better time management and estimate our efficiency more accurately.
+            </p>
+
+            <p>
+                The database took an ungodly amount of time. Robert spend multiple weeks researching and testing code with little in the way of results. Dan took 5 days total,
+                losing out on an unhealthy amount of sleep, but was able to get it working in time for the end of the project. The largest time sink ended up being
+                the research and testing. Digging through websites, stack overflow, the discussion forum and other group's projects took longest instead of coding.
+                But even coding took ages because of bugs showing up whenever more code was added. It was a hellish cycle of research, experimenting, and code-like-hell.<br>
+                The music feature the fastest feature to add. Developing it took time and effort but Robert started on the right track from the start.
+                His experience working with audio files helped with finding resources and altering them to fit the project.<br>
+                The biggest surprise was how difficult dividing simple tasks into user stories turned out to be. Often everything conflated into a strongly coupled mess.
+                It probably would've been easier if there were non-technical people working on the project giving a different perspective. Too many chefs, not enough cooks.
+            </p>
+
+            <p>
+                Surprisingly, the upgrades feature turned out the best. It had nice graphics because of Chris' efforts and artistic experience, as well as
+                a large beneficial impact on gameplay, and interacted nicely with most of the other features. The group had expected it to turn out scuffed due
+                to high coupling, but we kept it separate and it turned out great. The biggest success for that feature was multi-threading to keep different
+                processes separate, preventing continuous features from being interrupted and letting timed features, including upgrades, run only when they needed to.
+                of many other features.<br>
+                Merging actually was a unpleasant surprise. There was a <i>hiccup</i> during the last 4 hours of iteration 1 where shit hit the fan due to some forced merges,
+                reckless panic fixes, and exhaustion. The group got it fixed in time, but it took the life out of each and every one of us. It took 2 weeks to recover ourselves.
+            </p>
+
+        </div><br><br>
+        <hr style="width:99%;border:5px solid blue" class="w3-round" id="velocity">
+    </div>
+    <br><br><br><br>
+
+    <!-- Velocity Chart -->
+    <div class="w3-container">
+        <div>
+            <h1 class="w3-xxxlarge w3-text-black pad-me w3-center" style="padding-bottom:20px;"><b>Velocity Chart</b></h1>
+        </div><br>
+        <div class="w3-row-padding container-small w3-light-gray">
+            <div class="w3-half m4 w3-margin-bottom">
+                <div class="w3-blue">
+                    <img src="Images/velocity-chart.png" alt="Velocity Chart for iterations 1-3"
+                         style="max-width:100%; height:auto; display:block; margin-top:50px;">
+                </div>
+            </div>
+
+            <div class="w3-half w3-center">
+                <br>
+                <h5 class="feature-title w3-xxlarge">Chart Analysis</h5>
+                <p class="w3-large w3-left-align">
+                    The velocity chart features the differences in our estimated and actual time spent on each iteration.<br><br>
+                    As seen in the chart, we have spent more time than expected in the first two iterations.
+                    This is due to longer meetings and working longer on some features and on other aspects of those iterations.<br><br>
+                    Specifically, in iteration 2 we bit off more than we could chew where we expected less but in the end spent a lot of time on those features.<br><br>
+                    In the third iteration, however, we were able to deliver as much as we have expected,
+                    and chose instead to move some unfinished features to future iterations.
+                </p>
+            </div>
+        </div><br><br>
+        <hr style="width:99%;border:5px solid blue" class="w3-round">
+    </div>
+    <br><br><br><br>
+
+</div>
+
+<!-- W3.CSS Container -->
+<script>
+function scrollTo(section) {
+  var elmnt = document.getElementById(section);
+  elmnt.scrollIntoView();
+}
+</script>
+
+</body>
+</html>

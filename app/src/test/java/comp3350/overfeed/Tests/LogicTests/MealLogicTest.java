@@ -4,24 +4,29 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import comp3350.overfeed.domainObjects.Upgrades;
+import java.util.ArrayList;
+
+import comp3350.overfeed.domainObjects.Upgrade;
 import comp3350.overfeed.logic.MealLogic;
+import comp3350.overfeed.persistence.MealPersistence;
 
 public class MealLogicTest {
 
     private MealLogic mealLogic;
-    private Upgrades up;
+    private Upgrade up;
 
     @Before
     public void setUp()
     {
         mealLogic = new MealLogic();
+        mealLogic.initializeData();
         up = null;
     }
 
     @Test
     public void test1()
     {
+        //tests for
         System.out.println("Starting Meal Logic Test One");
 
         assertEquals("Starting number of meals should be 0",
@@ -47,7 +52,7 @@ public class MealLogicTest {
 
     @Test
     public void test2(){
-        //test formatting text and ensuring that data isn't null
+        //tests for formatting text and ensuring that data isn't null
         System.out.println("Starting Meal Logic Test Two");
 
         assertNotEquals("The PlateValueText should not be empty ",
@@ -66,28 +71,28 @@ public class MealLogicTest {
                 mealLogic.getLambSauceValueText(), "");
 
 
-        mealLogic.createUpgrade("Plate", 2, 15);
-        assertTrue("Should have plate upgrade", mealLogic.checkUpgradeExists("Plate"));
+        mealLogic.createUpgrade("PLATE", 2, 15, 3);
+        assertTrue("Should have plate upgrade", mealLogic.checkUpgradeExists("PLATE"));
         assertNotEquals("The PlateValueText should not be empty ",
                 mealLogic.getPlateValueText(), "");
 
-        mealLogic.createUpgrade("Worker", 5, 100);
-        assertTrue("Should have worker upgrade", mealLogic.checkUpgradeExists("Worker"));
+        mealLogic.createUpgrade("WORKER", 5, 100,3);
+        assertTrue("Should have worker upgrade", mealLogic.checkUpgradeExists("WORKER"));
         assertNotEquals("The WorkerValueText should not be empty ",
                 mealLogic.getWorkerValueText(), "");
 
-        mealLogic.createUpgrade("Food Truck", 30, 350);
-        assertTrue("Should have food truck upgrade", mealLogic.checkUpgradeExists("Food Truck"));
+        mealLogic.createUpgrade("FOODTRUCK", 30, 350, 2);
+        assertTrue("Should have food truck upgrade", mealLogic.checkUpgradeExists("FOODTRUCK"));
         assertNotEquals("The FoodTruckValueText should not be empty ",
                 mealLogic.getFoodTruckValueText(), "");
 
-        mealLogic.createUpgrade("Restaurant", 100, 1500);
-        assertTrue("Should have restaurant upgrade", mealLogic.checkUpgradeExists("Restaurant"));
+        mealLogic.createUpgrade("RESTAURANT", 100, 1500, 2);
+        assertTrue("Should have restaurant upgrade", mealLogic.checkUpgradeExists("RESTAURANT"));
         assertNotEquals("The RestaurantValueText should not be empty ",
                 mealLogic.getRestaurantValueText(), "");
 
-        mealLogic.createUpgrade("Lamb Sauce", 999, 7000);
-        assertTrue("Should have lamb sauce upgrade", mealLogic.checkUpgradeExists("Lamb Sauce"));
+        mealLogic.createUpgrade("LAMBSAUCE", 999, 7000, 2);
+        assertTrue("Should have lamb sauce upgrade", mealLogic.checkUpgradeExists("LAMBSAUCE"));
         assertNotEquals("The LambSauceValueText should not be empty ",
                 mealLogic.getLambSauceValueText(), "");
 
@@ -111,6 +116,17 @@ public class MealLogicTest {
         String[] testIDArr = mealLogic.getUpgradeIDs();
         assertNotEquals("The UpgradeIDsArray should not be empty",
                 testIDArr, "");
+
+        ArrayList<Upgrade> up = mealLogic.getUpgradeList();
+        assertNotNull("Upgrade list should not be null", up);
+
+        MealPersistence pers = mealLogic.getPersistence();
+        assertNotNull("MealPersistence object should not be null", pers);
+
+        int[] costMult = mealLogic.getCostMultArray();
+        assertNotNull("Cost Mult Array should not be null", costMult);
+        assertTrue("The first item in the cost mult array should be 3.", costMult[0] == 3);
+
 
         System.out.println("Finished Meal Logic Test Two");
     }
@@ -149,7 +165,7 @@ public class MealLogicTest {
                 mealLogic.haveEnoughMeals(15));
 
         //create the worker upgrade
-        mealLogic.createUpgrade("Worker", 5, 10);
+        mealLogic.createUpgrade("Worker", 5, 10,3);
         //add enough meals to purchase one
         for(int i = 0; i < 15; i++){ mealLogic.increaseMeals(); }
         meals = mealLogic.getMeals();
@@ -180,8 +196,8 @@ public class MealLogicTest {
         assertTrue("Current amount of worker upgrade should be more than previous",
                 amtBefore < up.getUpgradeNum());
 
-        //test the increasemeals with a plate
-        mealLogic.createUpgrade("Plate", 2, 15);
+        //test the increaseMeals with a plate
+        mealLogic.createUpgrade("PLATE", 2, 15, 3);
 
         meals = mealLogic.getMeals();
         mealLogic.increaseMeals();

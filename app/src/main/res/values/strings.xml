@@ -32,5 +32,16 @@
     <string name="lambSauceUpgradeDesc">Eviscerate all competition with one drop of this sacred ingredient!</string>
     <string name="save">Save</string>
 
+    <string name="fatalError">Fatal error</string>
+    <string name="warning">Warning</string>
+    <string name="clickableplate">clickablePlate</string>
+    <string name="plateCaps">PLATE</string>
+    <string name="workerCaps">WORKER</string>
+    <string name="food_truckCAPS">FOOD TRUCK</string>
+    <string name="restaurantCAPS">RESTAURANT</string>
+    <string name="lamb_sauceCAPS">LAMB SAUCE</string>
+    <string name="tablebgimage">TableBGImage</string>
+    <string name="tableimage">tableImage</string>
+
 
 </resources>

@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import comp3350.overfeed.R;
 import comp3350.overfeed.logic.MealLogic;
-import comp3350.overfeed.domainObjects.Upgrades;
 
 public class UpgradesActivity extends AppCompatActivity
 {
@@ -61,7 +59,7 @@ public class UpgradesActivity extends AppCompatActivity
             if(mealLogic.haveEnoughMeals(mealLogic.getBaseCostArray()[0]))
             {
                 mealLogic.decreaseMeals(mealLogic.getBaseCostArray()[0]);
-                mealLogic.createUpgrade(id, mealLogic.getBaseValueArray()[0], mealLogic.getBaseCostArray()[0]);
+                mealLogic.createUpgrade(id, mealLogic.getBaseValueArray()[0], mealLogic.getBaseCostArray()[0], mealLogic.getCostMultArray()[0]);
                 toastText = id+ " Upgrade unlocked!";
             }
 
@@ -94,7 +92,7 @@ public class UpgradesActivity extends AppCompatActivity
             if(mealLogic.haveEnoughMeals(mealLogic.getBaseCostArray()[1]))
             {
                 mealLogic.decreaseMeals(mealLogic.getBaseCostArray()[1]);
-                mealLogic.createUpgrade(id, mealLogic.getBaseValueArray()[1], mealLogic.getBaseCostArray()[1]);
+                mealLogic.createUpgrade(id, mealLogic.getBaseValueArray()[1], mealLogic.getBaseCostArray()[1], mealLogic.getCostMultArray()[1]);
                 toastText = id+ " Upgrade unlocked!";
             }
         }
@@ -126,7 +124,7 @@ public class UpgradesActivity extends AppCompatActivity
             if(mealLogic.haveEnoughMeals(mealLogic.getBaseCostArray()[2]))
             {
                 mealLogic.decreaseMeals(mealLogic.getBaseCostArray()[2]);
-                mealLogic.createUpgrade(id, mealLogic.getBaseValueArray()[2], mealLogic.getBaseCostArray()[2]);
+                mealLogic.createUpgrade(id, mealLogic.getBaseValueArray()[2], mealLogic.getBaseCostArray()[2], mealLogic.getCostMultArray()[2]);
                 toastText = id+ " Upgrade unlocked!";
             }
         }
@@ -159,7 +157,7 @@ public class UpgradesActivity extends AppCompatActivity
             if(mealLogic.haveEnoughMeals(mealLogic.getBaseCostArray()[3]))
             {
                 mealLogic.decreaseMeals(mealLogic.getBaseCostArray()[3]);
-                mealLogic.createUpgrade(id, mealLogic.getBaseValueArray()[3], mealLogic.getBaseCostArray()[3]);
+                mealLogic.createUpgrade(id, mealLogic.getBaseValueArray()[3], mealLogic.getBaseCostArray()[3], mealLogic.getCostMultArray()[3]);
                 toastText = id+ " Upgrade unlocked!";
             }
         }
@@ -192,7 +190,7 @@ public class UpgradesActivity extends AppCompatActivity
             if(mealLogic.haveEnoughMeals(mealLogic.getBaseCostArray()[4]))
             {
                 mealLogic.decreaseMeals(mealLogic.getBaseCostArray()[4]);
-                mealLogic.createUpgrade(id, mealLogic.getBaseValueArray()[4], mealLogic.getBaseCostArray()[4]);
+                mealLogic.createUpgrade(id, mealLogic.getBaseValueArray()[4], mealLogic.getBaseCostArray()[4], mealLogic.getCostMultArray()[4]);
                 toastText = id+ " Upgrade unlocked!";
             }
         }

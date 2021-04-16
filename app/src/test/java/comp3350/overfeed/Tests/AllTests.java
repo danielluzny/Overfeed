@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 import comp3350.overfeed.Tests.LogicTests.MealLogicTest;
+import comp3350.overfeed.Tests.LogicTests.SaveAndLoadLogicTest;
 import comp3350.overfeed.Tests.LogicTests.TimeLogicTest;
 import comp3350.overfeed.Tests.LogicTests.AchievementsLogicTest;
 
@@ -11,7 +12,8 @@ import comp3350.overfeed.Tests.LogicTests.AchievementsLogicTest;
 @Suite.SuiteClasses({
         TimeLogicTest.class,
         MealLogicTest.class,
-        AchievementsLogicTest.class
+        AchievementsLogicTest.class,
+        SaveAndLoadLogicTest.class,
 })
 
 public class AllTests

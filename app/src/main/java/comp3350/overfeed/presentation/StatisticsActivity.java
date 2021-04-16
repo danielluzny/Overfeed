@@ -26,15 +26,14 @@ public class StatisticsActivity extends AppCompatActivity {
 
         String meals_string = extras.getString("NUMBER_MEALS");
         String clicks_string = extras.getString("NUMBER_CLICKS");
-        String minutes_string = extras.getString("TIME_MINUTES");
-        String seconds_string = extras.getString("TIME_SECONDS");
+        String time_string = extras.getString("CURR_TIME");
 
         textTotalClicks = (TextView)findViewById(R.id.textTotalClicks);
         textCurrentTime = (TextView)findViewById(R.id.textCurrentTime);
         textTotalMeals = (TextView)findViewById(R.id.textTotalMeals);
         textTotalClicks.setText(clicks_string);
         textTotalMeals.setText(meals_string);
-        textCurrentTime.setText(minutes_string+":"+seconds_string);
+        textCurrentTime.setText(time_string);
     }
 
 }
