@@ -14,6 +14,10 @@ public class SaveLogic
 
     public SaveLogic(){}
 
+    public SaveLogic(final Save savePersistence) {
+        this.saver = savePersistence;
+    }
+
     public void initializeSaver(MealLogic m, TimeLogic t, AchievementsLogic a)
     {
         mealLogic = m;
